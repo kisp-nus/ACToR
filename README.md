@@ -1,10 +1,10 @@
 
 # ACToR: Adversarial Agent Collaboration for C to Rust Translation
 
-<div align="center">
-  <img src="docs/images/actor_logo.svg" alt="logo" width="600"/>
-</div>
-
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/images/actor_logo_dark.svg">
+  <img src="docs/images/actor_logo_light.svg" alt="ACToR logo" width="600">
+</picture>
 
 <br/>
 

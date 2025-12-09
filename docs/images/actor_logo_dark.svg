@@ -8,8 +8,8 @@
   <text xml:space="preserve"
         font-family="DejaVu Sans Mono, 'Courier New', monospace"
         font-size="16"
-        fill="#00CCCC"
-        stroke="#ffffff"
+        fill="#FFFFFF"
+        stroke="#FFFFFF"
         stroke-width="0.3"
         font-weight="bold">
       <tspan x="10" y="28"> ________  ________ _________            ________     </tspan>
