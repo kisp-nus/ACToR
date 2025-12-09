@@ -1,0 +1,1 @@
+docker exec -it actor-sandbox-cont /bin/bash

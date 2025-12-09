@@ -1,0 +1,2 @@
+{"description": "Remove the leading ./main: in output", "pattern": "\\./main:", "replacement": ""}
+{"description": "Remove the leading main: in output", "pattern": "main:", "replacement": ""}

@@ -1,0 +1,30 @@
+{"name": "add_positive", "description": "Adding two positive numbers", "alias_name": "", "args": ["2", "+", "2"], "idx": 1}
+{"name": "add_pos_neg", "description": "Adding positive and negative", "alias_name": "", "args": ["3", "+", "-2"], "idx": 2}
+{"name": "add_negative", "description": "Adding two negative numbers", "alias_name": "", "args": ["-2", "+", "-3"], "idx": 3}
+{"name": "add_zero", "description": "Adding zero", "alias_name": "", "args": ["5", "+", "0"], "idx": 4}
+{"name": "add_large", "description": "Adding large numbers", "alias_name": "", "args": ["500000", "+", "500000"], "idx": 5}
+{"name": "sub_equal", "description": "Subtracting two numbers", "alias_name": "", "args": ["2", "-", "2"], "idx": 6}
+{"name": "sub_negative", "description": "Subtracting negative number", "alias_name": "", "args": ["3", "-", "-2"], "idx": 7}
+{"name": "sub_from_zero", "description": "Subtracting from zero", "alias_name": "", "args": ["0", "-", "5"], "idx": 8}
+{"name": "sub_zero", "description": "Subtracting zero", "alias_name": "", "args": ["10", "-", "0"], "idx": 9}
+{"name": "sub_larger", "description": "Subtracting larger from smaller", "alias_name": "", "args": ["2", "-", "5"], "idx": 10}
+{"name": "mul_positive", "description": "Multiplying two positive numbers", "alias_name": "", "args": ["2", "*", "3"], "idx": 11}
+{"name": "mul_zero", "description": "Multiplying by zero", "alias_name": "", "args": ["5", "*", "0"], "idx": 12}
+{"name": "mul_one", "description": "Multiplying by one", "alias_name": "", "args": ["7", "*", "1"], "idx": 13}
+{"name": "mul_negative", "description": "Multiplying negative numbers", "alias_name": "", "args": ["-3", "*", "-4"], "idx": 14}
+{"name": "mul_pos_neg", "description": "Multiplying positive and negative", "alias_name": "", "args": ["3", "*", "-5"], "idx": 15}
+{"name": "div_simple", "description": "Dividing two numbers", "alias_name": "", "args": ["6", "/", "2"], "idx": 16}
+{"name": "div_one", "description": "Dividing by one", "alias_name": "", "args": ["8", "/", "1"], "idx": 17}
+{"name": "div_negative", "description": "Dividing negative numbers", "alias_name": "", "args": ["-6", "/", "-3"], "idx": 18}
+{"name": "div_pos_neg", "description": "Dividing positive by negative", "alias_name": "", "args": ["6", "/", "-3"], "idx": 19}
+{"name": "div_truncation", "description": "Integer division truncation", "alias_name": "", "args": ["7", "/", "2"], "idx": 20}
+{"name": "mod_simple", "description": "Modulo operation", "alias_name": "", "args": ["7", "%", "3"], "idx": 21}
+{"name": "mod_zero_result", "description": "Modulo with zero result", "alias_name": "", "args": ["6", "%", "3"], "idx": 22}
+{"name": "mod_neg_dividend", "description": "Modulo with negative dividend", "alias_name": "", "args": ["-7", "%", "3"], "idx": 23}
+{"name": "mod_neg_divisor", "description": "Modulo with negative divisor", "alias_name": "", "args": ["7", "%", "-3"], "idx": 24}
+{"name": "mod_both_neg", "description": "Modulo both negative", "alias_name": "", "args": ["-7", "%", "-3"], "idx": 25}
+{"name": "div_by_zero", "description": "Division by zero", "alias_name": "", "args": ["2", "/", "0"], "idx": 26}
+{"name": "mod_by_zero", "description": "Modulo by zero", "alias_name": "", "args": ["2", "%", "0"], "idx": 27}
+{"name": "mul_overflow", "description": "Multiplication overflow", "alias_name": "", "args": ["9223372036854775807", "*", "2"], "idx": 28}
+{"name": "add_overflow", "description": "Addition overflow positive", "alias_name": "", "args": ["9223372036854775807", "+", "1"], "idx": 29}
+{"name": "sub_overflow", "description": "Subtraction overflow negative", "alias_name": "", "args": ["-9223372036854775808", "-", "1"], "idx": 30}

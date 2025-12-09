@@ -1,0 +1,12 @@
+.lproc/
+.lproc_archive/
+hello*
+__pycache__/
+*.log
+*.egg-info/
+build/
+dist/
+*.pyc
+*.pyo
+.ruff_cache/
+temp.*

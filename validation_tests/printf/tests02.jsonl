@@ -1,0 +1,23 @@
+{"name": "zero_octal", "description": "Zero octal", "alias_name": "", "args": ["%o", "0"], "idx": 61}
+{"name": "zero_hex", "description": "Zero hex", "alias_name": "", "args": ["%x", "0"], "idx": 62}
+{"name": "zero_unsigned", "description": "Zero unsigned", "alias_name": "", "args": ["%u", "0"], "idx": 63}
+{"name": "int_no_arg", "description": "Integer with no argument", "alias_name": "", "args": ["%d"], "idx": 64}
+{"name": "string_no_arg", "description": "String with no argument", "alias_name": "", "args": ["%s"], "idx": 65}
+{"name": "float_no_arg", "description": "Float with no argument", "alias_name": "", "args": ["%f"], "idx": 66}
+{"name": "string_from_null", "description": "String from null", "alias_name": "", "args": ["%s"], "idx": 67}
+{"name": "int_from_null", "description": "Integer from null", "alias_name": "", "args": ["%d"], "idx": 68}
+{"name": "unsigned_from_null", "description": "Unsigned from null", "alias_name": "", "args": ["%u"], "idx": 69}
+{"name": "float_from_null", "description": "Float from null", "alias_name": "", "args": ["%f"], "idx": 70}
+{"name": "format_reuse_multi", "description": "Format reuse with multiple args", "alias_name": "", "args": ["%d %d %d", "123", "456", "789"], "idx": 71}
+{"name": "format_reuse_insufficient", "description": "Format reuse insufficient args", "alias_name": "", "args": ["%d %d", "123"], "idx": 72}
+{"name": "mixed_format_insufficient", "description": "Mixed format insufficient args", "alias_name": "", "args": ["%s %d %s", "hello"], "idx": 73}
+{"name": "negative_hex", "description": "Negative hex", "alias_name": "", "args": ["%x", "-1"], "idx": 74}
+{"name": "negative_octal", "description": "Negative octal", "alias_name": "", "args": ["%o", "-1"], "idx": 75}
+{"name": "negative_unsigned", "description": "Negative unsigned", "alias_name": "", "args": ["%u", "-1"], "idx": 76}
+{"name": "very_large_int", "description": "Very large integer", "alias_name": "", "args": ["%d", "999999999999999999"], "idx": 77}
+{"name": "very_small_float", "description": "Very small float", "alias_name": "", "args": ["%f", "0.000001"], "idx": 78}
+{"name": "very_large_float", "description": "Very large float scientific", "alias_name": "", "args": ["%e", "100000000000000000000.0"], "idx": 79}
+{"name": "float_many_decimals", "description": "Float with many decimals", "alias_name": "", "args": ["%.12f", "3.141592653589793"], "idx": 80}
+{"name": "format_with_flags", "description": "Format with only flags", "alias_name": "", "args": ["%#-+ 0d", "123"], "idx": 81}
+{"name": "format_precision_dot", "description": "Format with precision dot only", "alias_name": "", "args": ["%.d", "123"], "idx": 82}
+{"name": "empty_string", "description": "Empty string", "alias_name": "", "args": ["%s", ""], "idx": 83}

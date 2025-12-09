@@ -1,0 +1,8 @@
+{
+  "max_parallel": 5,
+  "input_directory": "projects_input_BSD",
+  "working_directory": ".working_BSD",
+  "backups_directory": ".backups_BSD",
+  "output_directory": "projects_output_BSD"
+}
+

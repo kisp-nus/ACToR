@@ -1,0 +1,10 @@
+{"name": "str_with_spaces", "description": "String with spaces", "alias_name": "", "args": ["hello world"], "idx": 91}
+{"name": "invalid_add_operand", "description": "Invalid operand for addition", "alias_name": "", "args": ["abc", "+", "1"], "idx": 92}
+{"name": "invalid_mul_operand", "description": "Invalid operand for multiplication", "alias_name": "", "args": ["1", "*", "def"], "idx": 93}
+{"name": "invalid_div_operand", "description": "Invalid operand for division", "alias_name": "", "args": ["xyz", "/", "2"], "idx": 94}
+{"name": "unmatched_right_paren", "description": "Unmatched right parenthesis", "alias_name": "", "args": [")", "+", "2"], "idx": 95}
+{"name": "unmatched_left_paren", "description": "Unmatched left parenthesis", "alias_name": "", "args": ["(", "2", "+", "3"], "idx": 96}
+{"name": "missing_operand", "description": "Missing operand", "alias_name": "", "args": ["2", "+"], "idx": 97}
+{"name": "invalid_operator", "description": "Invalid operator", "alias_name": "", "args": ["2", "?", "2"], "idx": 98}
+{"name": "empty_expression", "description": "Empty expression", "alias_name": "", "args": [], "idx": 99}
+{"name": "double_operator", "description": "Double operator", "alias_name": "", "args": ["2", "+", "+", "3"], "idx": 100}

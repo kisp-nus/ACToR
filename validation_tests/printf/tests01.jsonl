@@ -1,0 +1,30 @@
+{"name": "field_width_arg", "description": "Field width as argument", "alias_name": "", "args": ["%*s", "7", "hello"], "idx": 31}
+{"name": "precision_arg", "description": "Precision as argument for string", "alias_name": "", "args": ["%.*s", "2", "hello"], "idx": 32}
+{"name": "width_precision_args", "description": "Field width and precision as arguments", "alias_name": "", "args": ["%*.*s", "4", "2", "hello"], "idx": 33}
+{"name": "width_zero", "description": "Field width from argument zero", "alias_name": "", "args": ["%*s", "0", "hello"], "idx": 34}
+{"name": "precision_zero", "description": "Precision from argument zero", "alias_name": "", "args": ["%.*s", "0", "hello"], "idx": 35}
+{"name": "both_zero", "description": "Both zero from arguments", "alias_name": "", "args": ["%*.*s", "0", "0", "hello"], "idx": 36}
+{"name": "octal_format", "description": "Octal format specifier", "alias_name": "", "args": ["%o", "123"], "idx": 37}
+{"name": "unsigned_format", "description": "Unsigned format specifier", "alias_name": "", "args": ["%u", "123"], "idx": 38}
+{"name": "uppercase_hex", "description": "Uppercase hexadecimal", "alias_name": "", "args": ["%X", "123"], "idx": 39}
+{"name": "scientific_lower", "description": "Scientific notation lowercase", "alias_name": "", "args": ["%e", "123.456"], "idx": 40}
+{"name": "scientific_upper", "description": "Scientific notation uppercase", "alias_name": "", "args": ["%E", "123.456"], "idx": 41}
+{"name": "general_float_lower", "description": "General float format lowercase", "alias_name": "", "args": ["%g", "123.456"], "idx": 42}
+{"name": "fixed_point_upper", "description": "Fixed-point float uppercase", "alias_name": "", "args": ["%F", "123.456"], "idx": 43}
+{"name": "hex_float_lower", "description": "Hexadecimal float lowercase", "alias_name": "", "args": ["%a", "123.0"], "idx": 44}
+{"name": "hex_float_width", "description": "Hexadecimal float field width", "alias_name": "", "args": ["%12a", "123.0"], "idx": 45}
+{"name": "escape_string_octal", "description": "Escape string with octal", "alias_name": "", "args": ["%b", "\\101\\102\\103"], "idx": 46}
+{"name": "escape_string_hex", "description": "Escape string with hex", "alias_name": "", "args": ["%b", "\\x41\\x42\\x43"], "idx": 47}
+{"name": "escape_string_mixed", "description": "Escape string with mixed escapes", "alias_name": "", "args": ["%b", "A\\nB\\tC"], "idx": 48}
+{"name": "escape_string_c_term", "description": "Escape string with \\c termination", "alias_name": "", "args": ["%b", "Hello\\cWorld"], "idx": 49}
+{"name": "complex_b_octal", "description": "Complex %b octal sequences", "alias_name": "", "args": ["%b", "\\001\\002\\003"], "idx": 50}
+{"name": "complex_b_hex", "description": "Complex %b hex sequences", "alias_name": "", "args": ["%b", "\\x01\\x02\\x03"], "idx": 51}
+{"name": "char_literal_int", "description": "Character literal as integer", "alias_name": "", "args": ["%d", "'A'"], "idx": 52}
+{"name": "char_literal_unsigned", "description": "Character literal as unsigned", "alias_name": "", "args": ["%u", "'A'"], "idx": 53}
+{"name": "char_literal_float", "description": "Character literal as float", "alias_name": "", "args": ["%f", "'A'"], "idx": 54}
+{"name": "multi_char_literal", "description": "Multiple character literal", "alias_name": "", "args": ["%d", "'AB'"], "idx": 55}
+{"name": "char_literal_quotes", "description": "Character literal with quotes", "alias_name": "", "args": ["%d", "'\"'"], "idx": 56}
+{"name": "empty_char_literal", "description": "Empty character literal", "alias_name": "", "args": ["%d", "''"], "idx": 57}
+{"name": "double_dash_option", "description": "Double dash option", "alias_name": "", "args": ["--", "%s", "hello"], "idx": 58}
+{"name": "zero_integer", "description": "Zero integer", "alias_name": "", "args": ["%d", "0"], "idx": 59}
+{"name": "zero_float", "description": "Zero float", "alias_name": "", "args": ["%f", "0.0"], "idx": 60}

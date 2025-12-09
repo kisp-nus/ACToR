@@ -1,0 +1,30 @@
+{"name": "div_overflow", "description": "Division overflow (INT64_MIN / -1)", "alias_name": "", "args": ["-9223372036854775808", "/", "-1"], "idx": 31}
+{"name": "eq_int_true", "description": "Equal integers", "alias_name": "", "args": ["5", "=", "5"], "idx": 32}
+{"name": "eq_int_false", "description": "Not equal integers", "alias_name": "", "args": ["5", "=", "3"], "idx": 33}
+{"name": "lt_true", "description": "Less than (true)", "alias_name": "", "args": ["3", "<", "5"], "idx": 34}
+{"name": "lt_false", "description": "Less than (false)", "alias_name": "", "args": ["5", "<", "3"], "idx": 35}
+{"name": "gt_true", "description": "Greater than (true)", "alias_name": "", "args": ["5", ">", "3"], "idx": 36}
+{"name": "gt_false", "description": "Greater than (false)", "alias_name": "", "args": ["3", ">", "5"], "idx": 37}
+{"name": "le_equal", "description": "Less than or equal (equal)", "alias_name": "", "args": ["5", "<=", "5"], "idx": 38}
+{"name": "le_less", "description": "Less than or equal (less)", "alias_name": "", "args": ["3", "<=", "5"], "idx": 39}
+{"name": "le_false", "description": "Less than or equal (false)", "alias_name": "", "args": ["5", "<=", "3"], "idx": 40}
+{"name": "ge_equal", "description": "Greater than or equal (equal)", "alias_name": "", "args": ["5", ">=", "5"], "idx": 41}
+{"name": "ge_greater", "description": "Greater than or equal (greater)", "alias_name": "", "args": ["5", ">=", "3"], "idx": 42}
+{"name": "ge_false", "description": "Greater than or equal (false)", "alias_name": "", "args": ["3", ">=", "5"], "idx": 43}
+{"name": "ne_true", "description": "Not equal (true)", "alias_name": "", "args": ["5", "!=", "3"], "idx": 44}
+{"name": "ne_false", "description": "Not equal (false)", "alias_name": "", "args": ["5", "!=", "5"], "idx": 45}
+{"name": "str_eq_true", "description": "String equality (true)", "alias_name": "", "args": ["hello", "=", "hello"], "idx": 46}
+{"name": "str_eq_false", "description": "String equality (false)", "alias_name": "", "args": ["hello", "=", "world"], "idx": 47}
+{"name": "str_lt", "description": "String less than", "alias_name": "", "args": ["abc", "<", "def"], "idx": 48}
+{"name": "str_gt", "description": "String greater than", "alias_name": "", "args": ["def", ">", "abc"], "idx": 49}
+{"name": "str_le", "description": "String less than or equal", "alias_name": "", "args": ["abc", "<=", "abc"], "idx": 50}
+{"name": "str_ge", "description": "String greater than or equal", "alias_name": "", "args": ["def", ">=", "abc"], "idx": 51}
+{"name": "str_ne_true", "description": "String not equal (true)", "alias_name": "", "args": ["hello", "!=", "world"], "idx": 52}
+{"name": "str_ne_false", "description": "String not equal (false)", "alias_name": "", "args": ["hello", "!=", "hello"], "idx": 53}
+{"name": "empty_str_eq", "description": "Empty string comparison", "alias_name": "", "args": ["", "=", ""], "idx": 54}
+{"name": "empty_vs_nonempty", "description": "Empty vs non-empty string", "alias_name": "", "args": ["", "=", "hello"], "idx": 55}
+{"name": "and_true_true", "description": "AND operation (true && true)", "alias_name": "", "args": ["1", "&", "2"], "idx": 56}
+{"name": "and_true_false", "description": "AND operation (true && false)", "alias_name": "", "args": ["1", "&", "0"], "idx": 57}
+{"name": "and_false_true", "description": "AND operation (false && true)", "alias_name": "", "args": ["0", "&", "1"], "idx": 58}
+{"name": "and_false_false", "description": "AND operation (false && false)", "alias_name": "", "args": ["0", "&", "0"], "idx": 59}
+{"name": "or_true_true", "description": "OR operation (true || true)", "alias_name": "", "args": ["1", "|", "2"], "idx": 60}

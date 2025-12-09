@@ -1,0 +1,15 @@
+{"name": "reverse_string", "description": "Reverse the given string", "alias_name": "", "args": ["hello"], "idx": 1}
+{"name": "reverse_string_empty", "description": "Reverse the empty string", "alias_name": "", "args": [""], "idx": 2}
+{"name": "reverse_string_single_char", "description": "Reverse the single character string", "alias_name": "", "args": ["a"], "idx": 3}
+{"name": "reverse_string_with_numbers", "description": "Reverse the string with numbers", "alias_name": "", "args": ["1234567890"], "idx": 4}
+{"name": "special_characters", "description": "Reverse the string with special characters", "alias_name": "", "args": ["!@#$%^&*()"], "idx": 5}
+{"name": "long_string", "description": "Reverse the long string", "alias_name": "", "args": ["aaaaaaaaabbbbbbbb"], "idx": 6}
+{"name": "mixed_string", "description": "Reverse the mixed string", "alias_name": "", "args": ["hello123!@#"], "idx": 7}
+{"name": "escaped_string", "description": "Reverse the escaped string", "alias_name": "", "args": ["\\hello"], "idx": 8}
+{"name": "unicode_string", "description": "Reverse the unicode string", "alias_name": "", "args": ["😊😊😊"], "idx": 9}
+{"name": "null_string", "description": "Reverse the null string", "alias_name": "", "args": ["null"], "idx": 10}
+{"name": "newline_string", "description": "Reverse the newline string", "alias_name": "", "args": ["\n"], "idx": 11}
+{"name": "tab_string", "description": "Reverse the tab string", "alias_name": "", "args": ["\t"], "idx": 12}
+{"name": "carriage_return_string", "description": "Reverse the carriage return string", "alias_name": "", "args": ["\r"], "idx": 13}
+{"name": "form_feed_string", "description": "Reverse the form feed string", "alias_name": "", "args": ["\f"], "idx": 14}
+{"name": "backspace_string", "description": "Reverse the backspace string", "alias_name": "", "args": ["\b"], "idx": 15}

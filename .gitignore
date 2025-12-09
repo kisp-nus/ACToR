@@ -1,0 +1,53 @@
+# Translation tool working directories
+.working/
+.working_BSD/
+.backups/
+.backups_BSD/
+projects_output/
+projects_output_BSD/
+__cache/
+__local_cache__/
+__arena_sandbox/
+__secret__/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+

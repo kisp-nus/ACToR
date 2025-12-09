@@ -1,0 +1,15 @@
+{"name":"no_arguments","description":"No arguments should show usage","cmd_prep":"true","cmd_target":"BINARY","cmd_post":"true","idx":1}
+{"name":"help_output","description":"Invalid argument should show usage","cmd_prep":"true","cmd_target":"BINARY --help","cmd_post":"true","idx":2}
+{"name":"nonexistent_root","description":"Non-existent root directory should error","cmd_prep":"true","cmd_target":"BINARY /nonexistent/path","cmd_post":"true","idx":3}
+{"name":"file_as_root","description":"File instead of directory should error","cmd_prep":"echo 'test' > notdir.txt","cmd_target":"BINARY notdir.txt","cmd_post":"rm -f notdir.txt","idx":4}
+{"name":"empty_root_path","description":"Empty root path should error","cmd_prep":"true","cmd_target":"BINARY ''","cmd_post":"true","idx":5}
+{"name":"relative_root_path","description":"Relative root path should work but fail permission","cmd_prep":"mkdir -p testdir","cmd_target":"BINARY testdir","cmd_post":"rmdir testdir","idx":6}
+{"name":"absolute_root_path","description":"Absolute root path should fail permission","cmd_prep":"mkdir -p /tmp/testroot","cmd_target":"BINARY /tmp/testroot","cmd_post":"rmdir /tmp/testroot","idx":7}
+{"name":"with_command","description":"Root with command should fail permission","cmd_prep":"mkdir -p testdir","cmd_target":"BINARY testdir /bin/echo hello","cmd_post":"rmdir testdir","idx":8}
+{"name":"group_flag_empty","description":"Empty group list should error","cmd_prep":"mkdir -p testdir","cmd_target":"BINARY -g '' testdir","cmd_post":"rmdir testdir","idx":9}
+{"name":"group_flag_valid","description":"Valid group flag should fail permission","cmd_prep":"mkdir -p testdir","cmd_target":"BINARY -g root testdir","cmd_post":"rmdir testdir","idx":10}
+{"name":"group_flag_multiple","description":"Multiple groups should fail permission","cmd_prep":"mkdir -p testdir","cmd_target":"BINARY -g root,daemon testdir","cmd_post":"rmdir testdir","idx":11}
+{"name":"invalid_flag","description":"Invalid flag should show usage","cmd_prep":"true","cmd_target":"BINARY -x testdir","cmd_post":"true","idx":12}
+{"name":"too_many_args","description":"Too many arguments with command","cmd_prep":"mkdir -p testdir","cmd_target":"BINARY testdir /bin/echo hello world","cmd_post":"rmdir testdir","idx":13}
+{"name":"permission_denied_root","description":"Permission denied accessing /root","cmd_prep":"true","cmd_target":"BINARY /root","cmd_post":"true","idx":14}
+{"name":"current_directory","description":"Current directory as root should fail permission","cmd_prep":"true","cmd_target":"BINARY .","cmd_post":"true","idx":15}

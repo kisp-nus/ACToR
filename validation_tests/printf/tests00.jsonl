@@ -1,0 +1,30 @@
+{"name": "simple_string", "description": "Simple string", "alias_name": "", "args": ["%s", "hello world"], "idx": 1}
+{"name": "decimal_integer", "description": "Decimal integer", "alias_name": "", "args": ["%d", "123"], "idx": 2}
+{"name": "hex_integer", "description": "Hexadecimal integer", "alias_name": "", "args": ["%x", "123"], "idx": 3}
+{"name": "floating_point", "description": "Floating point", "alias_name": "", "args": ["%f", "123.456"], "idx": 4}
+{"name": "percent_sign", "description": "Print percent sign", "alias_name": "", "args": ["%%"], "idx": 5}
+{"name": "octal_escape", "description": "Octal to binary conversion", "alias_name": "", "args": ["\\101"], "idx": 6}
+{"name": "hex_escape", "description": "Hexadecimal to binary conversion", "alias_name": "", "args": ["\\x41"], "idx": 7}
+{"name": "backslash_escape", "description": "Backslash escape", "alias_name": "", "args": ["\\\\"], "idx": 8}
+{"name": "single_quote_escape", "description": "Single quote escape", "alias_name": "", "args": ["\\'"], "idx": 9}
+{"name": "double_quote_escape", "description": "Double quote escape", "alias_name": "", "args": ["\\\""], "idx": 10}
+{"name": "alert_escape", "description": "Alert escape", "alias_name": "", "args": ["\\a"], "idx": 11}
+{"name": "backspace_escape", "description": "Backspace escape", "alias_name": "", "args": ["\\b"], "idx": 12}
+{"name": "escape_char", "description": "Escape character", "alias_name": "", "args": ["\\e"], "idx": 13}
+{"name": "form_feed_escape", "description": "Form feed escape", "alias_name": "", "args": ["\\f"], "idx": 14}
+{"name": "carriage_return_escape", "description": "Carriage return escape", "alias_name": "", "args": ["\\r"], "idx": 15}
+{"name": "vertical_tab_escape", "description": "Vertical tab escape", "alias_name": "", "args": ["\\v"], "idx": 16}
+{"name": "missing_format_char", "description": "Missing format character", "alias_name": "", "args": ["%"], "idx": 17}
+{"name": "invalid_directive", "description": "Invalid directive", "alias_name": "", "args": ["%z", "123"], "idx": 18}
+{"name": "invalid_integer", "description": "Invalid integer input", "alias_name": "", "args": ["%d", "abc"], "idx": 19}
+{"name": "no_arguments", "description": "No arguments provided", "alias_name": "", "args": [], "idx": 20}
+{"name": "null_escape", "description": "Null escape sequence", "alias_name": "", "args": ["\\"], "idx": 21}
+{"name": "unknown_escape", "description": "Unknown escape sequence", "alias_name": "", "args": ["\\z"], "idx": 22}
+{"name": "expected_numeric", "description": "Expected numeric value", "alias_name": "", "args": ["%d", "notanumber"], "idx": 23}
+{"name": "not_completely_converted", "description": "Not completely converted", "alias_name": "", "args": ["%d", "123garbage"], "idx": 24}
+{"name": "numeric_range_error", "description": "Numeric range error", "alias_name": "", "args": ["%d", "99999999999999999999999999999999999999999"], "idx": 25}
+{"name": "char_format", "description": "Character format specifier", "alias_name": "", "args": ["%c", "A"], "idx": 26}
+{"name": "char_no_arg", "description": "Character with no argument", "alias_name": "", "args": ["%c"], "idx": 27}
+{"name": "null_char", "description": "Null character", "alias_name": "", "args": ["%c", ""], "idx": 28}
+{"name": "char_empty_string", "description": "Character from empty string", "alias_name": "", "args": ["%c", ""], "idx": 29}
+{"name": "char_from_null", "description": "Character from null", "alias_name": "", "args": ["%c"], "idx": 30}

@@ -1,0 +1,30 @@
+{"name": "simple_line_break", "description": "Simple line break", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'This is a test' | BINARY -w 10", "cmd_post": "", "idx": 1}
+{"name": "preserve_indentation", "description": "Preserve indentation", "alias_name": "", "cmd_prep": "", "cmd_target": "echo '    This is a test' | BINARY -w 10 -p", "cmd_post": "", "idx": 2}
+{"name": "tab_expansion", "description": "Tab expansion", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e 'This is\\t\\ta test' | BINARY -t 4", "cmd_post": "", "idx": 3}
+{"name": "center_text", "description": "Center text", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'This is a test' | BINARY -w 20 -c", "cmd_post": "", "idx": 4}
+{"name": "mail_header", "description": "Mail header", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e 'Subject: Test\\n\\nHello' | BINARY -m", "cmd_post": "", "idx": 5}
+{"name": "no_formatting", "description": "No formatting", "alias_name": "", "cmd_prep": "", "cmd_target": "echo '.TH TEST' | BINARY -n", "cmd_post": "", "idx": 6}
+{"name": "center_text_tabs", "description": "Center text with tabs", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e '    This\\t is a\\t test' | BINARY -w 20 -c", "cmd_post": "", "idx": 7}
+{"name": "center_invalid_utf8", "description": "Center text with invalid utf-8", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e '\\x7a\\xc3\\x9f\\xe6' | BINARY -w 20 -c", "cmd_post": "", "idx": 8}
+{"name": "tab_indentation", "description": "Tab indentation in indent_length", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e '\\tTest\\nline' | BINARY -w 10", "cmd_post": "", "idx": 9}
+{"name": "file_processing", "description": "File processing via process_named_file", "alias_name": "", "cmd_prep": "echo -e 'This is a test file\\nwith multiple lines' > test_input.txt", "cmd_target": "BINARY -w 10 test_input.txt", "cmd_post": "rm -f test_input.txt", "idx": 10}
+{"name": "custom_sentence_enders", "description": "Custom sentence enders", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'Hello! How are you?' | BINARY -d '!?' -w 10", "cmd_post": "", "idx": 11}
+{"name": "output_tab_width", "description": "Output tab width", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e '    Test\\n    line' | BINARY -l 4 -w 10", "cmd_post": "", "idx": 12}
+{"name": "coalesce_spaces", "description": "Coalesce spaces", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'Hello  world' | BINARY -s -w 15", "cmd_post": "", "idx": 13}
+{"name": "numeric_width_option", "description": "Numeric width option", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'This is a test line' | BINARY -10", "cmd_post": "", "idx": 14}
+{"name": "numeric_width_dash", "description": "Numeric width option with dash", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'This is a test line' | BINARY -10", "cmd_post": "", "idx": 15}
+{"name": "goal_max_length", "description": "Goal and max length args", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'This is a test line' | BINARY 10 15", "cmd_post": "", "idx": 16}
+{"name": "wide_characters", "description": "Wide characters formatting", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'αβγδεζηθικλμνξο' | BINARY -w 10", "cmd_post": "", "idx": 17}
+{"name": "mixed_ascii_wide", "description": "Mixed ASCII and wide chars", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'Hello αβγ world δεζ' | BINARY -w 15", "cmd_post": "", "idx": 18}
+{"name": "mail_header_continuation", "description": "Mail header continuation", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e 'Subject:\\n  This is a long subject\\n  that continues\\n\\nBody text' | BINARY -m", "cmd_post": "", "idx": 19}
+{"name": "multiple_mail_headers", "description": "Multiple mail headers", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e 'From: test@example.com\\nTo: user@example.com\\nSubject: Test\\n\\nHello world' | BINARY -m", "cmd_post": "", "idx": 20}
+{"name": "non_header_after_header", "description": "Non-header after header", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e 'Subject: Test\\nNot a header\\n\\nBody' | BINARY -m", "cmd_post": "", "idx": 21}
+{"name": "invalid_mail_header", "description": "Invalid mail header format", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e 'notaheader: value\\nSubject: Real header' | BINARY -m", "cmd_post": "", "idx": 22}
+{"name": "multiple_paragraphs", "description": "Multiple paragraphs", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e 'First\\nparagraph\\n\\nSecond\\nparagraph' | BINARY -w 15", "cmd_post": "", "idx": 23}
+{"name": "indented_paragraphs", "description": "Indented paragraphs", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e '  First paragraph\\n  with indentation\\n\\n    Second paragraph\\n    more indented' | BINARY -p -w 20", "cmd_post": "", "idx": 24}
+{"name": "blank_lines_preservation", "description": "Blank lines preservation", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e 'Line 1\\n\\n\\nLine 2' | BINARY -w 10", "cmd_post": "", "idx": 25}
+{"name": "custom_sentence_enders2", "description": "Custom sentence enders", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'End.  Next!  Another?' | BINARY -d '.!?' -w 20", "cmd_post": "", "idx": 26}
+{"name": "no_double_space", "description": "No double space at line end", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'End. Next' | BINARY -w 10", "cmd_post": "", "idx": 27}
+{"name": "question_mark_sentence", "description": "Question mark sentence end", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'Question?  Answer' | BINARY -w 15", "cmd_post": "", "idx": 28}
+{"name": "troff_commands_preserved", "description": "Troff commands preserved", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e '.TH MANUAL\\nRegular text' | BINARY -w 10", "cmd_post": "", "idx": 29}
+{"name": "format_troff_enabled", "description": "Format troff enabled", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e '.TH MANUAL\\nRegular text' | BINARY -n -w 10", "cmd_post": "", "idx": 30}

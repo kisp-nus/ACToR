@@ -1,0 +1,6 @@
+rich>=13.0.0
+jinja2
+litellm
+tenacity
+openai>=1.0.0
+pyyaml

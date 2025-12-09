@@ -1,0 +1,416 @@
+{
+  "arch": {
+    "loc": 57,
+    "functions": 2,
+    "category": "system_info_status",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/arch"
+  },
+  "basename": {
+    "loc": 150,
+    "functions": 4,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/basename"
+  },
+  "bsdvers": {
+    "loc": 39,
+    "functions": 2,
+    "category": "scripting_utilities",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/bsdvers"
+  },
+  "cat": {
+    "loc": 294,
+    "functions": 7,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/cat"
+  },
+  "chmod": {
+    "loc": 833,
+    "functions": 17,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/chmod"
+  },
+  "chroot": {
+    "loc": 179,
+    "functions": 4,
+    "category": "environment_process_control",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/chroot"
+  },
+  "comm": {
+    "loc": 118,
+    "functions": 4,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/comm"
+  },
+  "cp": {
+    "loc": 703,
+    "functions": 13,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/cp"
+  },
+  "csplit": {
+    "loc": 350,
+    "functions": 11,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/csplit"
+  },
+  "cut": {
+    "loc": 312,
+    "functions": 8,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/cut"
+  },
+  "date": {
+    "loc": 262,
+    "functions": 7,
+    "category": "system_info_status",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/date"
+  },
+  "dd": {
+    "loc": 1084,
+    "functions": 37,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/dd"
+  },
+  "df": {
+    "loc": 705,
+    "functions": 18,
+    "category": "system_info_status",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/df"
+  },
+  "dirname": {
+    "loc": 135,
+    "functions": 4,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/dirname"
+  },
+  "du": {
+    "loc": 626,
+    "functions": 10,
+    "category": "system_info_status",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/du"
+  },
+  "echo": {
+    "loc": 23,
+    "functions": 1,
+    "category": "scripting_utilities",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/echo"
+  },
+  "env": {
+    "loc": 76,
+    "functions": 4,
+    "category": "environment_process_control",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/env"
+  },
+  "expand": {
+    "loc": 157,
+    "functions": 5,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/expand"
+  },
+  "expr": {
+    "loc": 454,
+    "functions": 18,
+    "category": "scripting_utilities",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/expr"
+  },
+  "factor": {
+    "loc": 1210,
+    "functions": 7,
+    "category": "scripting_utilities",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/factor"
+  },
+  "false": {
+    "loc": 7,
+    "functions": 1,
+    "category": "scripting_utilities",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/false"
+  },
+  "fmt": {
+    "loc": 458,
+    "functions": 16,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/fmt"
+  },
+  "fold": {
+    "loc": 239,
+    "functions": 6,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/fold"
+  },
+  "head": {
+    "loc": 116,
+    "functions": 3,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/head"
+  },
+  "id": {
+    "loc": 348,
+    "functions": 10,
+    "category": "system_info_status",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/id"
+  },
+  "join": {
+    "loc": 593,
+    "functions": 14,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/join"
+  },
+  "ln": {
+    "loc": 233,
+    "functions": 5,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/ln"
+  },
+  "logname": {
+    "loc": 27,
+    "functions": 2,
+    "category": "system_info_status",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/logname"
+  },
+  "ls": {
+    "loc": 1684,
+    "functions": 45,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/ls"
+  },
+  "mkdir": {
+    "loc": 529,
+    "functions": 10,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/mkdir"
+  },
+  "mknod": {
+    "loc": 510,
+    "functions": 10,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/mknod"
+  },
+  "mktemp": {
+    "loc": 212,
+    "functions": 6,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/mktemp"
+  },
+  "mv": {
+    "loc": 1231,
+    "functions": 30,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/mv"
+  },
+  "nice": {
+    "loc": 101,
+    "functions": 3,
+    "category": "environment_process_control",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/nice"
+  },
+  "nl": {
+    "loc": 314,
+    "functions": 5,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/nl"
+  },
+  "nohup": {
+    "loc": 114,
+    "functions": 5,
+    "category": "environment_process_control",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/nohup"
+  },
+  "paste": {
+    "loc": 291,
+    "functions": 7,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/paste"
+  },
+  "pathchk": {
+    "loc": 236,
+    "functions": 6,
+    "category": "scripting_utilities",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/pathchk"
+  },
+  "pr": {
+    "loc": 1483,
+    "functions": 21,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/pr"
+  },
+  "printenv": {
+    "loc": 27,
+    "functions": 1,
+    "category": "environment_process_control",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/printenv"
+  },
+  "printf": {
+    "loc": 375,
+    "functions": 12,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/printf"
+  },
+  "pwd": {
+    "loc": 96,
+    "functions": 5,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/pwd"
+  },
+  "readlink": {
+    "loc": 55,
+    "functions": 2,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/readlink"
+  },
+  "realpath": {
+    "loc": 72,
+    "functions": 4,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/realpath"
+  },
+  "rm": {
+    "loc": 710,
+    "functions": 21,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/rm"
+  },
+  "rmdir": {
+    "loc": 89,
+    "functions": 5,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/rmdir"
+  },
+  "sleep": {
+    "loc": 92,
+    "functions": 5,
+    "category": "scripting_utilities",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/sleep"
+  },
+  "sort": {
+    "loc": 5469,
+    "functions": 173,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/sort"
+  },
+  "split": {
+    "loc": 402,
+    "functions": 9,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/split"
+  },
+  "stat": {
+    "loc": 1214,
+    "functions": 19,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/stat"
+  },
+  "stty": {
+    "loc": 1057,
+    "functions": 34,
+    "category": "system_info_status",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/stty"
+  },
+  "sync": {
+    "loc": 7,
+    "functions": 1,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/sync"
+  },
+  "tail": {
+    "loc": 930,
+    "functions": 21,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/tail"
+  },
+  "tee": {
+    "loc": 90,
+    "functions": 2,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/tee"
+  },
+  "test": {
+    "loc": 542,
+    "functions": 19,
+    "category": "scripting_utilities",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/test"
+  },
+  "touch": {
+    "loc": 250,
+    "functions": 6,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/touch"
+  },
+  "tr": {
+    "loc": 454,
+    "functions": 11,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/tr"
+  },
+  "true": {
+    "loc": 5,
+    "functions": 1,
+    "category": "scripting_utilities",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/true"
+  },
+  "tsort": {
+    "loc": 1028,
+    "functions": 50,
+    "category": "scripting_utilities",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/tsort"
+  },
+  "tty": {
+    "loc": 33,
+    "functions": 2,
+    "category": "system_info_status",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/tty"
+  },
+  "uname": {
+    "loc": 91,
+    "functions": 2,
+    "category": "system_info_status",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/uname"
+  },
+  "unexpand": {
+    "loc": 120,
+    "functions": 3,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/unexpand"
+  },
+  "uniq": {
+    "loc": 281,
+    "functions": 10,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/uniq"
+  },
+  "users": {
+    "loc": 83,
+    "functions": 3,
+    "category": "system_info_status",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/users"
+  },
+  "wc": {
+    "loc": 423,
+    "functions": 7,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/wc"
+  },
+  "who": {
+    "loc": 676,
+    "functions": 14,
+    "category": "system_info_status",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/who"
+  },
+  "xargs": {
+    "loc": 619,
+    "functions": 12,
+    "category": "scripting_utilities",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/xargs"
+  },
+  "xinstall": {
+    "loc": 1108,
+    "functions": 23,
+    "category": "file_directory_management",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/xinstall"
+  },
+  "yes": {
+    "loc": 13,
+    "functions": 1,
+    "category": "text_processing",
+    "path": "../bench_bsdutils/testmore-BSDCoreUtils/src/yes"
+  }
+}

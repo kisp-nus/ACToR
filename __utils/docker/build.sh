@@ -1,0 +1,1 @@
+docker build -t actor-sandbox -f ./devuniv.Dockerfile .

@@ -1,0 +1,15 @@
+{"name": "ge_false", "description": "Greater than or equal (false)", "alias_name": "", "args": ["3", ">=", "5"], "idx": 1}
+{"name": "ge_greater", "description": "Greater than or equal (greater)", "alias_name": "", "args": ["5", ">=", "3"], "idx": 2}
+{"name": "invalid_add_operand", "description": "Invalid operand for addition", "alias_name": "", "args": ["abc", "+", "1"], "idx": 3}
+{"name": "sub_larger", "description": "Subtracting larger from smaller", "alias_name": "", "args": ["2", "-", "5"], "idx": 4}
+{"name": "regex_no_match", "description": "Regex no match", "alias_name": "", "args": ["hello", ":", "world"], "idx": 5}
+{"name": "str_ge", "description": "String greater than or equal", "alias_name": "", "args": ["def", ">=", "abc"], "idx": 6}
+{"name": "add_pos_neg", "description": "Adding positive and negative", "alias_name": "", "args": ["3", "+", "-2"], "idx": 7}
+{"name": "regex_group_no_match", "description": "Regex group no match", "alias_name": "", "args": ["hello", ":", "h\\(xyz\\)o"], "idx": 8}
+{"name": "div_simple", "description": "Dividing two numbers", "alias_name": "", "args": ["6", "/", "2"], "idx": 9}
+{"name": "complex_precedence", "description": "Complex expression with precedence", "alias_name": "", "args": ["3", "+", "4", "*", "5", "+", "0"], "idx": 10}
+{"name": "paren_simple", "description": "Simple parentheses", "alias_name": "", "args": ["(", "3", "+", "4", ")"], "idx": 11}
+{"name": "mul_positive", "description": "Multiplying two positive numbers", "alias_name": "", "args": ["2", "*", "3"], "idx": 12}
+{"name": "and_true_true", "description": "AND operation (true && true)", "alias_name": "", "args": ["1", "&", "2"], "idx": 13}
+{"name": "and_true_false", "description": "AND operation (true && false)", "alias_name": "", "args": ["1", "&", "0"], "idx": 14}
+{"name": "regex_empty_string", "description": "Regex empty string", "alias_name": "", "args": ["", ":", "hello"], "idx": 15}

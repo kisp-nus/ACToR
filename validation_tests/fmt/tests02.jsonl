@@ -1,0 +1,6 @@
+{"name": "large_tab_width", "description": "Large tab width", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e 'a\\tb' | BINARY -t 16 -w 40", "cmd_post": "", "idx": 61}
+{"name": "output_tab_large_indent", "description": "Output tab with large indent", "alias_name": "", "cmd_prep": "", "cmd_target": "echo -e '                        Indented text' | BINARY -l 8 -w 30", "cmd_post": "", "idx": 62}
+{"name": "center_odd_width", "description": "Center with odd width", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'Hello' | BINARY -c -w 21", "cmd_post": "", "idx": 63}
+{"name": "center_exact_fit", "description": "Center with exact fit", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'Hello world' | BINARY -c -w 11", "cmd_post": "", "idx": 64}
+{"name": "coalesce_line_boundaries", "description": "Coalesce at line boundaries", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'Word word' | BINARY -s -w 8", "cmd_post": "", "idx": 65}
+{"name": "multiple_sentence_enders", "description": "Multiple sentence enders", "alias_name": "", "cmd_prep": "", "cmd_target": "echo 'End.  Next!  More?  Yes:  No;  Done' | BINARY -d '.!?:;' -w 20", "cmd_post": "", "idx": 66}

@@ -1,0 +1,8 @@
+{
+  "max_parallel": 5,
+  "input_directory": "projects_input",
+  "working_directory": ".working",
+  "backups_directory": ".backups",
+  "output_directory": "projects_output"
+}
+

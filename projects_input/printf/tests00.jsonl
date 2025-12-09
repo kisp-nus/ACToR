@@ -1,0 +1,15 @@
+{"name": "escape_string_mixed", "description": "Escape string with mixed escapes", "alias_name": "", "args": ["%b", "A\\nB\\tC"], "idx": 1}
+{"name": "zero_unsigned", "description": "Zero unsigned", "alias_name": "", "args": ["%u", "0"], "idx": 2}
+{"name": "width_zero", "description": "Field width from argument zero", "alias_name": "", "args": ["%*s", "0", "hello"], "idx": 3}
+{"name": "escape_string_hex", "description": "Escape string with hex", "alias_name": "", "args": ["%b", "\\x41\\x42\\x43"], "idx": 4}
+{"name": "empty_char_literal", "description": "Empty character literal", "alias_name": "", "args": ["%d", "''"], "idx": 5}
+{"name": "vertical_tab_escape", "description": "Vertical tab escape", "alias_name": "", "args": ["\\v"], "idx": 6}
+{"name": "single_quote_escape", "description": "Single quote escape", "alias_name": "", "args": ["\\'"], "idx": 7}
+{"name": "scientific_lower", "description": "Scientific notation lowercase", "alias_name": "", "args": ["%e", "123.456"], "idx": 8}
+{"name": "zero_hex", "description": "Zero hex", "alias_name": "", "args": ["%x", "0"], "idx": 9}
+{"name": "field_width_arg", "description": "Field width as argument", "alias_name": "", "args": ["%*s", "7", "hello"], "idx": 10}
+{"name": "string_from_null", "description": "String from null", "alias_name": "", "args": ["%s"], "idx": 11}
+{"name": "width_precision_args", "description": "Field width and precision as arguments", "alias_name": "", "args": ["%*.*s", "4", "2", "hello"], "idx": 12}
+{"name": "int_no_arg", "description": "Integer with no argument", "alias_name": "", "args": ["%d"], "idx": 13}
+{"name": "complex_b_octal", "description": "Complex %b octal sequences", "alias_name": "", "args": ["%b", "\\001\\002\\003"], "idx": 14}
+{"name": "format_reuse_insufficient", "description": "Format reuse insufficient args", "alias_name": "", "args": ["%d %d", "123"], "idx": 15}

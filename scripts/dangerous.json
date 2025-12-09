@@ -1,0 +1,1 @@
+{"ignore_list":  ["rm", "rmdir", "dd", "mv","yes", "true", "false", "bsdvers", "nohup", "stty", "chroot", "xinstall"]}

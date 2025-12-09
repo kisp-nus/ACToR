@@ -1,0 +1,30 @@
+{"name": "or_true_false", "description": "OR operation (true || false)", "alias_name": "", "args": ["1", "|", "0"], "idx": 61}
+{"name": "or_false_true", "description": "OR operation (false || true)", "alias_name": "", "args": ["0", "|", "2"], "idx": 62}
+{"name": "or_false_false", "description": "OR operation (false || false)", "alias_name": "", "args": ["0", "|", "0"], "idx": 63}
+{"name": "regex_simple", "description": "Regex simple match", "alias_name": "", "args": ["hello", ":", "hello"], "idx": 64}
+{"name": "regex_partial", "description": "Regex partial match", "alias_name": "", "args": ["hello", ":", "he"], "idx": 65}
+{"name": "regex_no_match", "description": "Regex no match", "alias_name": "", "args": ["hello", ":", "world"], "idx": 66}
+{"name": "regex_dot", "description": "Regex dot wildcard", "alias_name": "", "args": ["hello", ":", "....."], "idx": 67}
+{"name": "regex_star", "description": "Regex star quantifier", "alias_name": "", "args": ["hello", ":", "h.*o"], "idx": 68}
+{"name": "regex_char_class", "description": "Regex character class", "alias_name": "", "args": ["hello", ":", "[h]"], "idx": 69}
+{"name": "regex_group_capture", "description": "Regex with group capture", "alias_name": "", "args": ["hello", ":", "h\\(ell\\)o"], "idx": 70}
+{"name": "regex_group_no_match", "description": "Regex group no match", "alias_name": "", "args": ["hello", ":", "h\\(xyz\\)o"], "idx": 71}
+{"name": "regex_empty_pattern", "description": "Regex empty pattern", "alias_name": "", "args": ["hello", ":", ""], "idx": 72}
+{"name": "regex_empty_string", "description": "Regex empty string", "alias_name": "", "args": ["", ":", "hello"], "idx": 73}
+{"name": "paren_simple", "description": "Simple parentheses", "alias_name": "", "args": ["(", "3", "+", "4", ")"], "idx": 74}
+{"name": "paren_nested", "description": "Nested parentheses", "alias_name": "", "args": ["(", "(", "1", "+", "1", ")", "*", "7", ")"], "idx": 75}
+{"name": "precedence_mul_add", "description": "Precedence: multiplication before addition", "alias_name": "", "args": ["3", "+", "2", "*", "4"], "idx": 76}
+{"name": "precedence_div_sub", "description": "Precedence: division before subtraction", "alias_name": "", "args": ["5", "-", "8", "/", "2"], "idx": 77}
+{"name": "precedence_paren", "description": "Precedence: parentheses override", "alias_name": "", "args": ["(", "3", "+", "2", ")", "*", "4"], "idx": 78}
+{"name": "complex_precedence", "description": "Complex expression with precedence", "alias_name": "", "args": ["3", "+", "4", "*", "5", "+", "0"], "idx": 79}
+{"name": "str_to_int", "description": "String to integer conversion", "alias_name": "", "args": ["3", "+", "2"], "idx": 80}
+{"name": "int_to_str", "description": "Integer to string for comparison", "alias_name": "", "args": ["123", "=", "123"], "idx": 81}
+{"name": "mixed_type", "description": "Mixed type arithmetic", "alias_name": "", "args": ["3", "+", "2"], "idx": 82}
+{"name": "str_num_add", "description": "String number addition", "alias_name": "", "args": ["123", "+", "456"], "idx": 83}
+{"name": "leading_zeros", "description": "Leading zeros in numbers", "alias_name": "", "args": ["007", "+", "001"], "idx": 84}
+{"name": "single_operand", "description": "Single operand", "alias_name": "", "args": ["42"], "idx": 85}
+{"name": "negative_number", "description": "Negative number", "alias_name": "", "args": ["-5"], "idx": 86}
+{"name": "zero_operand", "description": "Zero operand", "alias_name": "", "args": ["0"], "idx": 87}
+{"name": "large_positive", "description": "Large positive number", "alias_name": "", "args": ["9223372036854775807"], "idx": 88}
+{"name": "large_negative", "description": "Large negative number", "alias_name": "", "args": ["-9223372036854775808"], "idx": 89}
+{"name": "single_char_str", "description": "Single character string", "alias_name": "", "args": ["a"], "idx": 90}

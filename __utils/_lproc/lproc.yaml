@@ -1,0 +1,22 @@
+# LProc Command Templates Configuration
+# 
+# Define command templates that can be used as shortcuts
+# Usage: ./lproc.py -s myproc "[claudix] --help"
+# The [claudix] will be replaced with the defined command
+
+templates:
+  # Claude AI assistant templates
+  claudix: "claude -p --dangerously-skip-permissions --model sonnet --output-format stream-json --input-format stream-json --verbose"
+  claude-opus: "claude -p --dangerously-skip-permissions --model opus --output-format stream-json --input-format stream-json --verbose"
+  
+  # Common grep patterns
+  errors: "grep -E '(ERROR|FATAL|CRITICAL)'"
+  warnings: "grep -E '(WARN|WARNING)'"
+  logs: "grep -E '(ERROR|WARN|INFO|DEBUG)'"
+  
+  # AWK templates
+  awk-timestamp: "awk '{print strftime(\"%Y-%m-%d %H:%M:%S\"), $0}'"
+  awk-linenum: "awk '{print NR, $0}'"
+  
+  # Python one-liners
+  py-upper: "python3 -c 'import sys; [print(line.upper(), end=\"\") for line in sys.stdin]'"
