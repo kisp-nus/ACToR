@@ -126,7 +126,7 @@ projects_input/
 We will create the translation task for this example project. Type `add` in the ACToR console to list all the projects found in the `projects_input` directory you specified in the beginning.
 
 <div align="left">
-  <img src="docs/images/3.png" alt="add" width="600"/>
+  <img src="docs/images/3.png" alt="add" width="400"/>
 </div>
 
 </br>

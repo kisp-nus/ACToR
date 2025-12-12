@@ -200,17 +200,24 @@ def discriminator(
 
 ## 🚧 Coming Soon
 
-We're actively working on improving ACToR! Here's what's on our roadmap:
+We're actively working on improving ACToR! Here's a glimpse of what’s on our roadmap:
 
-**Documentation & Tutorials**
-- More example implementations for custom translators and discriminators
-- Guide for designing own specification formats
+### Documentation & Tutorials
+- Improved documentation on ACToR’s design and architecture.  
+- More example implementations for custom translators and discriminators.  
+- Step-by-step guide for designing your own specification formats.
 
-**Core Improvements**
-- A better input/output format for more fine-grained control of translation tasks
-- Plugin system for easier integration of new agents
+### Core Improvements
+- Better task management:  
+  - Attach or detach translation tasks from the ACToR main console at any time. Each task will have an independent status file.  
+  - Live monitoring of each translation task with multi-level sub-process management based on `lproc`.  
+- Expanded agent & LLM support:  
+  - Add popular coding agents such as Codex, Copilot, and LLMs like Gemini and Grok.  
+  - Update the interface for Claude Code so it can be invoked via library APIs.  
+- Plugin system:
+  - Enable integration of new agents in a sub-process manner instead of as Python functions, simplifying extension and isolation.
 
-**Developer Experience**
-- Enhanced debugging and logging utilities
+### Developer Experience
+- Enhanced debugging and logging utilities for smoother development and troubleshooting.
 
 💡 *Have suggestions? Feel free to open an issue or PR!*
