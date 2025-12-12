@@ -396,8 +396,13 @@ def select_projects_interactive(projects: List[Dict]) -> List[str]:
     console.print("\n[bold cyan]Select Projects to Translate[/bold cyan]\n")
     console.print("Options:")
     console.print("  • Enter project numbers (e.g., '1,3,4' or '1 3 4')")
+    console.print("  • Enter project names (e.g., 'project1,project2' or 'project1 project2')")
+    console.print("  • Mix numbers and names (e.g., '1 project2 3')")
     console.print("  • Enter 'all' to select all projects")
     console.print("  • Enter 'q' to quit\n")
+    
+    # Create a mapping of lowercase project names to actual names for case-insensitive matching
+    project_name_map = {proj['name'].lower(): proj['name'] for proj in projects}
     
     while True:
         selection = Prompt.ask("Your selection")
@@ -408,27 +413,43 @@ def select_projects_interactive(projects: List[Dict]) -> List[str]:
         if selection.lower() == 'all':
             return [proj['name'] for proj in projects]
         
-        # Parse selection
-        try:
-            # Handle both comma and space separated
-            numbers = selection.replace(',', ' ').split()
-            indices = [int(n) - 1 for n in numbers]
+        # Parse selection - handle both comma and space separated
+        tokens = selection.replace(',', ' ').split()
+        selected = []
+        invalid_tokens = []
+        
+        for token in tokens:
+            # Try to parse as number (1-based index)
+            try:
+                idx = int(token) - 1
+                if 0 <= idx < len(projects):
+                    selected.append(projects[idx]['name'])
+                else:
+                    invalid_tokens.append(token)
+            except ValueError:
+                # Not a number, try to match as project name (case-insensitive)
+                token_lower = token.lower()
+                if token_lower in project_name_map:
+                    selected.append(project_name_map[token_lower])
+                else:
+                    invalid_tokens.append(token)
+        
+        if invalid_tokens:
+            console.print(f"[red]Invalid selections: {', '.join(invalid_tokens)}[/red]")
+            console.print("[yellow]Please check project numbers/names and try again.[/yellow]")
+        elif selected:
+            # Remove duplicates while preserving order
+            selected = list(dict.fromkeys(selected))
             
-            # Validate indices
-            if all(0 <= idx < len(projects) for idx in indices):
-                selected = [projects[idx]['name'] for idx in indices]
-                
-                # Show confirmation
-                console.print(f"\n[green]✓ Selected {len(selected)} project(s):[/green]")
-                for name in selected:
-                    console.print(f"  • {name}")
-                
-                if Confirm.ask("\nProceed with these projects?", default=True):
-                    return selected
-            else:
-                console.print("[red]Invalid project numbers. Please try again.[/red]")
-        except ValueError:
-            console.print("[red]Invalid input format. Use numbers, 'all', or 'q'.[/red]")
+            # Show confirmation
+            console.print(f"\n[green]✓ Selected {len(selected)} project(s):[/green]")
+            for name in selected:
+                console.print(f"  • {name}")
+            
+            if Confirm.ask("\nProceed with these projects?", default=True):
+                return selected
+        else:
+            console.print("[red]No valid selections. Please try again.[/red]")
 
 
 def configure_execution() -> tuple:
