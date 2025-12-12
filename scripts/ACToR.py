@@ -957,6 +957,23 @@ class TranslationServer:
         console.print("\n[bold cyan]Configure Execution[/bold cyan]")
         translator, discriminator, max_iterations = configure_execution()
         
+        ### Add a confirmation prompt here
+        console.print("\n[bold cyan]Task Configuration Summary[/bold cyan]")
+        console.print(f"\n[bold]Selected Projects:[/bold] {len(selected_projects)}")
+        for proj_name in selected_projects:
+            console.print(f"  • {proj_name}")
+        console.print(f"\n[bold]Translator:[/bold] {translator}")
+        console.print(f"[bold]Discriminator:[/bold] {discriminator}")
+        console.print(f"[bold]Max Iterations:[/bold] {max_iterations}")
+        
+        console.print("\n[yellow] This will create new project instances and start processing.[/yellow]")
+        confirm = Prompt.ask("\n[bold]Confirm and proceed?[/bold]", choices=["y", "n"], default="y")
+        
+        if confirm.lower() != 'y':
+            console.print("[yellow]Operation cancelled.[/yellow]")
+            Prompt.ask("\nPress Enter to continue")
+            return
+
         # Build configurations and add new projects
         new_count = 0
         added_instances = []
