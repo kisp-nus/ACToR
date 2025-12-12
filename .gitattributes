@@ -1,0 +1,5 @@
+projects_input/** linguist-vendored
+projects_input_BSD/** linguist-vendored
+validation_tests/** linguist-vendored
+__utils/** linguist-vendored
+docs/** linguist-documentation
