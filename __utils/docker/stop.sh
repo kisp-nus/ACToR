@@ -13,7 +13,7 @@
 #
 # Env vars
 # - IMAGE_BASE          base image name (default: actor-sandbox)
-# - CONTAINER_NAME      container name (default: actor-sandbox-cont)
+# - CONTAINER_NAME      container name (default: actor-sandbox-cont-other)
 # - SNAP_TAG            snapshot tag (default: ${IMAGE_BASE}:saved)
 # - CLEAN_BEFORE_COMMIT set to 0 to skip cleaning (default: 1)
 #
@@ -25,7 +25,7 @@
 set -euo pipefail
 
 IMAGE_BASE=${IMAGE_BASE:-actor-sandbox}
-CONTAINER_NAME=${CONTAINER_NAME:-actor-sandbox-cont}
+CONTAINER_NAME=${CONTAINER_NAME:-actor-sandbox-cont-other}
 SNAP_TAG=${SNAP_TAG:-${IMAGE_BASE}:saved}
 CLEAN_BEFORE_COMMIT=${CLEAN_BEFORE_COMMIT:-1}
 

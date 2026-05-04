@@ -138,3 +138,21 @@ class OpenAIModel(LitellmModel):
             return super().query(messages, api_key=api_key, max_completion_tokens=16384, **kwargs)
         else:
             return super().query(messages, api_key=api_key, max_tokens=max_tokens, max_completion_tokens=128000, **kwargs)
+
+
+class ZhipuModel(LitellmModel):
+    """For the use of Zhipu AI GLM models via litellm's zai/ provider prefix.
+    Uses the same key-file pattern as other model classes.
+    """
+
+    @local_cacher("LOCAL_CACHE", cache_folder="./__local_cache__")
+    def query_with_cache(self, messages: list[dict], **kwargs):
+        return self.query(messages, **kwargs)
+
+    def query(self, messages: list[dict], **kwargs) -> dict:
+        assert self.config.model_name in ["zai/glm-4.7"], "[ERROR] Currently only support zai/glm-4.7"
+        assert os.path.exists("./__secret__/zhipu.key"), "[ERROR] Zhipu API key is not set"
+        with open("./__secret__/zhipu.key", "r") as f:
+            api_key = f.read().strip()
+        assert api_key, "[ERROR] Zhipu API key is not set"
+        return super().query(messages, api_key=api_key, max_tokens=128000, drop_params=True, **kwargs)

@@ -23,7 +23,48 @@ from rich import box
 
 import importlib.util
 
-from utils import white_list_for_copy_c, white_list_for_copy_rs, white_list_for_copy_test_cases, white_list_for_copy_log_files, _copy_directory
+from utils import _copy_directory
+
+# Default whitelists for file copying
+DEFAULT_WHITE_LIST_FOR_COPY_PROJECT_FILES = [
+    "*.c",
+    "*.h",
+    "*.1",  # readme-like files
+    "*.6",  # readme-like files
+    "*.7",  # readme-like files
+    "*.8",  # readme-like files
+    "driver.c",
+    "shim.rs",
+    "source_files.config",
+    "VM_LANGUAGE.md",
+    "Makefile",
+    "cJSON.c",
+    "cJSON.h",
+]
+
+DEFAULT_WHITE_LIST_FOR_COPY_TRANSLATOR_FILES = [
+    "*.rs",
+    "lib.rs",
+    "Cargo.toml",
+    "Cargo.lock",
+]
+
+DEFAULT_WHITE_LIST_FOR_COPY_DISCRIMINATOR_FILES = [
+    "testcmp.sh",
+    "test_*.json",
+    "norm_rules.jsonl",
+    "seed_tests.jsonl",
+    "tests*.jsonl",
+    "fuzzer_template.py",
+    "test_cases_record.md",
+]
+
+DEFAULT_WHITE_LIST_FOR_COPY_LOG_FILES = [
+    "*.log",
+]
+
+
+
 
 # Helper to import modules with dots in filename (e.g., "CC-Sonnet-4.5.py")
 def _import_module_from_file(directory: str, filename: str):
@@ -36,13 +77,18 @@ def _import_module_from_file(directory: str, filename: str):
     return module
 
 # Import translators (file names contain hyphens and dots)
+translator_cc_opus_46 = _import_module_from_file("translators", "CC-Opus-4.6").translator
 translator_cc_sonnet_45 = _import_module_from_file("translators", "CC-Sonnet-4.5").translator
+translator_cc_sonnet_45_unsafe = _import_module_from_file("translators", "CC-Sonnet-4.5-unsafe").translator
+translator_lib_cc_sonnet_45 = _import_module_from_file("translators", "Lib-CC-Sonnet-4.5").translator
 translator_swe_sonnet_45 = _import_module_from_file("translators", "SWE-Sonnet-4.5").translator
 translator_swe_sonnet_4 = _import_module_from_file("translators", "SWE-Sonnet-4").translator
 translator_swe_gpt_5mini = _import_module_from_file("translators", "SWE-GPT-5mini").translator
+translator_swe_glm_47 = _import_module_from_file("translators", "SWE-GLM-4.7").translator
 
 # Import discriminators (file names contain hyphens and dots)
 discriminator_cc_sonnet_45_actor = _import_module_from_file("discriminators", "CC-Sonnet-4.5-ACToR").discriminator
+discriminator_lib_cc_sonnet_45_actor = _import_module_from_file("discriminators", "Lib-CC-Sonnet-4.5-ACToR").discriminator
 discriminator_cc_sonnet_45_actor_1_3 = _import_module_from_file("discriminators", "CC-Sonnet-4.5-ACToR-1_3").discriminator
 discriminator_cc_sonnet_45_actor_15_1 = _import_module_from_file("discriminators", "CC-Sonnet-4.5-ACToR-15_1").discriminator
 discriminator_cc_sonnet_45_actor_15_5 = _import_module_from_file("discriminators", "CC-Sonnet-4.5-ACToR-15_5").discriminator
@@ -51,13 +97,14 @@ discriminator_cc_sonnet_45_coverage = _import_module_from_file("discriminators",
 discriminator_swe_sonnet_45_actor = _import_module_from_file("discriminators", "SWE-Sonnet-4.5-ACToR").discriminator
 discriminator_swe_sonnet_4_actor = _import_module_from_file("discriminators", "SWE-Sonnet-4-ACToR").discriminator
 discriminator_swe_gpt_5mini_actor = _import_module_from_file("discriminators", "SWE-GPT-5mini-ACToR").discriminator
+discriminator_swe_glm_47_actor = _import_module_from_file("discriminators", "SWE-GLM-4.7-ACToR").discriminator
 
 """
 Default configuration for ACToR system.
 """
 
 # Version
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 # ASCII Logo
 ACTOR_LOGO = r"""
@@ -78,6 +125,7 @@ DEFAULT_CONFIG = {
     "backups_directory": ".backups",
     "output_directory": "projects_output"
 }
+
 
 # Configuration descriptions
 CONFIG_DESCRIPTIONS = {
@@ -129,23 +177,39 @@ class WorkManager:
         self.state_file = self.working_dir / '.translation_state.json'
         
         self.max_iterations = config.get('max_iterations', 10)
+        
+        # Get whitelists from config or use defaults
+        self.white_list_project_files = config.get('white_list_project_files', DEFAULT_WHITE_LIST_FOR_COPY_PROJECT_FILES)
+        self.white_list_translator_files = config.get('white_list_translator_files', DEFAULT_WHITE_LIST_FOR_COPY_TRANSLATOR_FILES)
+        self.white_list_discriminator_files = config.get('white_list_discriminator_files', DEFAULT_WHITE_LIST_FOR_COPY_DISCRIMINATOR_FILES)
+        self.white_list_log_files = config.get('white_list_log_files', DEFAULT_WHITE_LIST_FOR_COPY_LOG_FILES)
 
 
         self.translator = config.get('translator', 'CC-Sonnet-4.5')
         if self.translator == 'CC-Sonnet-4.5':
             self.translator = translator_cc_sonnet_45
+        elif self.translator == 'CC-Opus-4.6':
+            self.translator = translator_cc_opus_46
+        elif self.translator == 'CC-Sonnet-4.5-unsafe':
+            self.translator = translator_cc_sonnet_45_unsafe
+        elif self.translator == 'Lib-CC-Sonnet-4.5':
+            self.translator = translator_lib_cc_sonnet_45
         elif self.translator == 'SWE-Sonnet-4.5':
             self.translator = translator_swe_sonnet_45
         elif self.translator == 'SWE-Sonnet-4':
             self.translator = translator_swe_sonnet_4
         elif self.translator == 'SWE-GPT-5mini':
             self.translator = translator_swe_gpt_5mini
+        elif self.translator == 'SWE-GLM-4.7':
+            self.translator = translator_swe_glm_47
         else:
             assert False, f"[red]Invalid translator: {self.translator}[/red]"
 
         discriminator = config.get('discriminator', 'CC-Sonnet-4.5-ACToR')
         if discriminator == 'CC-Sonnet-4.5-ACToR':
             self.discriminator = discriminator_cc_sonnet_45_actor
+        elif discriminator == 'Lib-CC-Sonnet-4.5-ACToR':
+            self.discriminator = discriminator_lib_cc_sonnet_45_actor
         elif discriminator == 'CC-Sonnet-4.5-ACToR-1_3':
             self.discriminator = discriminator_cc_sonnet_45_actor_1_3
         elif discriminator == 'CC-Sonnet-4.5-ACToR-15_1':
@@ -162,6 +226,8 @@ class WorkManager:
             self.discriminator = discriminator_swe_sonnet_4_actor
         elif discriminator == 'SWE-GPT-5mini-ACToR':
             self.discriminator = discriminator_swe_gpt_5mini_actor
+        elif discriminator == 'SWE-GLM-4.7-ACToR':
+            self.discriminator = discriminator_swe_glm_47_actor
         else:
             assert False, f"[red]Invalid discriminator: {discriminator}[/red]"
 
@@ -206,38 +272,38 @@ class WorkManager:
         ### copy all files to sandbox
         work_dir_sandbox = self.working_dir / "sandbox"
         work_dir_sandbox.mkdir(parents=True, exist_ok=True)
-        whitelist = white_list_for_copy_c + white_list_for_copy_rs + white_list_for_copy_test_cases
+        whitelist = self.white_list_project_files + self.white_list_translator_files + self.white_list_discriminator_files
         _copy_directory(self.input_dir, work_dir_sandbox, whitelist=whitelist)
         
         ### copy only c files to c_files
         work_dir_c_files = self.working_dir / "c_files"
         work_dir_c_files.mkdir(parents=True, exist_ok=True)
-        _copy_directory(self.input_dir, work_dir_c_files, whitelist=white_list_for_copy_c)
+        _copy_directory(self.input_dir, work_dir_c_files, whitelist=self.white_list_project_files)
 
         ### copy only rs files to rs_files
         work_dir_rs_files = self.working_dir / "rs_files"
         work_dir_rs_files.mkdir(parents=True, exist_ok=True)
-        _copy_directory(self.input_dir, work_dir_rs_files, whitelist=white_list_for_copy_rs)
+        _copy_directory(self.input_dir, work_dir_rs_files, whitelist=self.white_list_translator_files)
 
         ### copy only test cases to test_cases
         work_dir_test_cases = self.working_dir / "test_cases"
         work_dir_test_cases.mkdir(parents=True, exist_ok=True)
-        _copy_directory(self.input_dir, work_dir_test_cases, whitelist=white_list_for_copy_test_cases)
+        _copy_directory(self.input_dir, work_dir_test_cases, whitelist=self.white_list_discriminator_files)
 
         ### copy log files to log_files
         work_dir_log_files = self.working_dir / "log_files"
         work_dir_log_files.mkdir(parents=True, exist_ok=True)
-        _copy_directory(self.input_dir, work_dir_log_files, whitelist=white_list_for_copy_log_files)
+        _copy_directory(self.input_dir, work_dir_log_files, whitelist=self.white_list_log_files)
         
         self.save_state()
     
     def create_translation_storage(self):
         """Create temporary storage for the translation result."""
-        _copy_directory(self.working_dir / "sandbox", self.working_dir / "rs_files", whitelist=white_list_for_copy_rs)
+        _copy_directory(self.working_dir / "sandbox", self.working_dir / "rs_files", whitelist=self.white_list_translator_files)
     
     def create_discrimination_storage(self):
         """Create temporary storage for the discrimination result."""
-        _copy_directory(self.working_dir / "sandbox", self.working_dir / "test_cases", whitelist=white_list_for_copy_test_cases)
+        _copy_directory(self.working_dir / "sandbox", self.working_dir / "test_cases", whitelist=self.white_list_discriminator_files)
     
     def create_backup(self, iteration_num: int) -> str:
         """
@@ -250,15 +316,15 @@ class WorkManager:
 
         backup_rs_files = backup_path / "rs_files"
         backup_rs_files.mkdir(parents=True, exist_ok=True)
-        _copy_directory(self.working_dir / "rs_files", backup_rs_files, whitelist=white_list_for_copy_rs)
+        _copy_directory(self.working_dir / "rs_files", backup_rs_files, whitelist=self.white_list_translator_files)
 
         backup_test_cases = backup_path / "test_cases"
         backup_test_cases.mkdir(parents=True, exist_ok=True)
-        _copy_directory(self.working_dir / "test_cases", backup_test_cases, whitelist=white_list_for_copy_test_cases)
+        _copy_directory(self.working_dir / "test_cases", backup_test_cases, whitelist=self.white_list_discriminator_files)
         
         backup_log_files = backup_path / "log_files"
         backup_log_files.mkdir(parents=True, exist_ok=True)
-        _copy_directory(self.working_dir / "log_files", backup_log_files, whitelist=white_list_for_copy_log_files)
+        _copy_directory(self.working_dir / "log_files", backup_log_files, whitelist=self.white_list_log_files)
         
         # Record backup
         self.state['backups'].append({
@@ -298,7 +364,7 @@ class WorkManager:
     
     def finalize(self):
         """Copy working directory to output directory."""
-        whitelist = white_list_for_copy_c + white_list_for_copy_rs + white_list_for_copy_test_cases
+        whitelist = self.white_list_project_files + self.white_list_translator_files + self.white_list_discriminator_files
         _copy_directory(self.working_dir, self.output_dir, whitelist=whitelist)
         self.state['status'] = ProjectStatus.COMPLETED.value
         self.state['end_time'] = datetime.now().isoformat()
@@ -462,9 +528,13 @@ def configure_execution() -> tuple:
     # Translator selection with table
     translators = [
         ("CC-Sonnet-4.5", "Claude Code + Sonnet-4.5 (default)"),
+        ("CC-Opus-4.6", "Claude Code + Opus-4.6"),
+        ("CC-Sonnet-4.5-unsafe", "Claude Code + Sonnet-4.5 (allow unsafe)"),
+        ("Lib-CC-Sonnet-4.5", "Claude Code + Sonnet-4.5 for Lib"),
         ("SWE-Sonnet-4.5", "SWE Agent + Sonnet-4.5"),
         ("SWE-Sonnet-4", "SWE Agent + Sonnet-4"),
         ("SWE-GPT-5mini", "SWE Agent + GPT-5mini"),
+        ("SWE-GLM-4.7", "SWE Agent + GLM-4.7"),
     ]
     
     translator_table = Table(title="Available Translators", box=box.ROUNDED)
@@ -488,6 +558,7 @@ def configure_execution() -> tuple:
     # Discriminator selection with table
     discriminators = [
         ("CC-Sonnet-4.5-ACToR", "Claude Code + ACToR (default, 15 init + 3 new/iter)"),
+        ("Lib-CC-Sonnet-4.5-ACToR", "Claude Code + ACToR for Lib (default, 15 init + 3 new/iter)"),
         ("CC-Sonnet-4.5-ACToR-noFuzz", "Claude Code + ACToR without fuzzing"),
         ("CC-Sonnet-4.5-Coverage", "Claude Code + Coverage baseline"),
         ("CC-Sonnet-4.5-ACToR-1_3", "Claude Code + ACToR (1 init + 3 new/iter)"),
@@ -496,6 +567,7 @@ def configure_execution() -> tuple:
         ("SWE-Sonnet-4.5-ACToR", "SWE Agent + ACToR (Sonnet-4.5)"),
         ("SWE-Sonnet-4-ACToR", "SWE Agent + ACToR (Sonnet-4)"),
         ("SWE-GPT-5mini-ACToR", "SWE Agent + ACToR (GPT-5mini)"),
+        ("SWE-GLM-4.7-ACToR", "SWE Agent + ACToR (GLM-4.7)"),
     ]
     
     discriminator_table = Table(title="Available Discriminators", box=box.ROUNDED)
@@ -522,7 +594,7 @@ def configure_execution() -> tuple:
     )
     try:
         max_iterations = int(max_iterations_str)
-        if max_iterations < 1:
+        if max_iterations < 0:
             console.print("[yellow]Invalid value, using default: 10[/yellow]")
             max_iterations = 10
     except ValueError:
@@ -569,7 +641,12 @@ class TranslationServer:
     Handles project creation, execution, monitoring, and lifecycle management.
     """
     
-    def __init__(self, input_base_dir: str, working_dir: str, backup_dir: str, output_dir: str, max_parallel: int = 10):
+    def __init__(self, input_base_dir: str, working_dir: str, backup_dir: str, output_dir: str, 
+                 max_parallel: int = 10,
+                 white_list_project_files: List[str] = None,
+                 white_list_translator_files: List[str] = None,
+                 white_list_discriminator_files: List[str] = None,
+                 white_list_log_files: List[str] = None):
         self.input_base_dir = input_base_dir
         self.working_dir = working_dir
         self.backup_dir = backup_dir
@@ -577,6 +654,12 @@ class TranslationServer:
 
         self.max_parallel = max_parallel
         self.running = True
+        
+        # Store whitelists for use when creating new projects
+        self.white_list_project_files = white_list_project_files or DEFAULT_WHITE_LIST_FOR_COPY_PROJECT_FILES
+        self.white_list_translator_files = white_list_translator_files or DEFAULT_WHITE_LIST_FOR_COPY_TRANSLATOR_FILES
+        self.white_list_discriminator_files = white_list_discriminator_files or DEFAULT_WHITE_LIST_FOR_COPY_DISCRIMINATOR_FILES
+        self.white_list_log_files = white_list_log_files or DEFAULT_WHITE_LIST_FOR_COPY_LOG_FILES
         
         # Direct project management - no separate manager class needed
         self.managers: Dict[str, WorkManager] = {}
@@ -989,7 +1072,11 @@ class TranslationServer:
                         'backup_dir': self.backup_dir,
                         'max_iterations': max_iterations,
                         'translator': translator,
-                        'discriminator': discriminator
+                        'discriminator': discriminator,
+                        'white_list_project_files': self.white_list_project_files,
+                        'white_list_translator_files': self.white_list_translator_files,
+                        'white_list_discriminator_files': self.white_list_discriminator_files,
+                        'white_list_log_files': self.white_list_log_files
                     }
                     
                     # Create WorkManager - each gets a unique session_id/hash
@@ -1245,7 +1332,7 @@ class TranslationServer:
                 )
                 try:
                     max_iterations = int(max_iterations_str)
-                    if max_iterations < 1:
+                    if max_iterations < 0:
                         max_iterations = 10
                 except ValueError:
                     max_iterations = 10
@@ -1259,7 +1346,11 @@ class TranslationServer:
                     'backup_dir': self.backup_dir,
                     'max_iterations': max_iterations,
                     'translator': selected_session['translator'],
-                    'discriminator': selected_session['discriminator']
+                    'discriminator': selected_session['discriminator'],
+                    'white_list_project_files': self.white_list_project_files,
+                    'white_list_translator_files': self.white_list_translator_files,
+                    'white_list_discriminator_files': self.white_list_discriminator_files,
+                    'white_list_log_files': self.white_list_log_files
                 }
 
                 # Confirm
@@ -1297,7 +1388,11 @@ class TranslationServer:
                     'backup_dir': self.backup_dir,
                     'max_iterations': max_iterations,
                     'translator': fork_translator,
-                    'discriminator': fork_discriminator
+                    'discriminator': fork_discriminator,
+                    'white_list_project_files': self.white_list_project_files,
+                    'white_list_translator_files': self.white_list_translator_files,
+                    'white_list_discriminator_files': self.white_list_discriminator_files,
+                    'white_list_log_files': self.white_list_log_files
                 }
 
                 # Confirm
@@ -1332,15 +1427,15 @@ class TranslationServer:
             
             console.print(f"[cyan]Restoring from backup: {backup_source}[/cyan]")
 
-            _copy_directory(original_input_path, new_manager.working_dir / "c_files", whitelist=white_list_for_copy_c)
-            _copy_directory(backup_source / "rs_files", new_manager.working_dir / "rs_files", whitelist=white_list_for_copy_rs)
-            _copy_directory(backup_source / "test_cases", new_manager.working_dir / "test_cases", whitelist=white_list_for_copy_test_cases)
-            _copy_directory(backup_source / "log_files", new_manager.working_dir / "log_files", whitelist=white_list_for_copy_log_files)
+            _copy_directory(original_input_path, new_manager.working_dir / "c_files", whitelist=new_manager.white_list_project_files)
+            _copy_directory(backup_source / "rs_files", new_manager.working_dir / "rs_files", whitelist=new_manager.white_list_translator_files)
+            _copy_directory(backup_source / "test_cases", new_manager.working_dir / "test_cases", whitelist=new_manager.white_list_discriminator_files)
+            _copy_directory(backup_source / "log_files", new_manager.working_dir / "log_files", whitelist=new_manager.white_list_log_files)
 
             # copy all to the sandbox directory
-            _copy_directory(new_manager.working_dir / "rs_files", new_manager.working_dir / "sandbox", whitelist=white_list_for_copy_rs)
-            _copy_directory(new_manager.working_dir / "test_cases", new_manager.working_dir / "sandbox", whitelist=white_list_for_copy_test_cases)
-            _copy_directory(new_manager.working_dir / "c_files", new_manager.working_dir / "sandbox", whitelist=white_list_for_copy_c)
+            _copy_directory(new_manager.working_dir / "rs_files", new_manager.working_dir / "sandbox", whitelist=new_manager.white_list_translator_files)
+            _copy_directory(new_manager.working_dir / "test_cases", new_manager.working_dir / "sandbox", whitelist=new_manager.white_list_discriminator_files)
+            _copy_directory(new_manager.working_dir / "c_files", new_manager.working_dir / "sandbox", whitelist=new_manager.white_list_project_files)
             
             # Set initial state to continue from the next iteration
             new_manager.state['status'] = ProjectStatus.QUEUED.value
@@ -1568,6 +1663,35 @@ def show_opening_screen():
         f"  [cyan]Output directory[/cyan]",
         default=default_val
     )
+
+
+    # Project files whitelist
+    default_val = DEFAULT_WHITE_LIST_FOR_COPY_PROJECT_FILES
+    config["white_list_project_files"] = Prompt.ask(
+        f"  [cyan]Project files whitelist[/cyan]",
+        default=str(default_val)
+    )
+    
+    # Translator files whitelist
+    default_val = DEFAULT_WHITE_LIST_FOR_COPY_TRANSLATOR_FILES
+    config["white_list_translator_files"] = Prompt.ask(
+        f"  [cyan]Translator files whitelist[/cyan]",
+        default=str(default_val)
+    )
+    
+    # Discriminator files whitelist
+    default_val = DEFAULT_WHITE_LIST_FOR_COPY_DISCRIMINATOR_FILES
+    config["white_list_discriminator_files"] = Prompt.ask(
+        f"  [cyan]Discriminator files whitelist[/cyan]",
+        default=str(default_val)
+    )
+    
+    # Log files whitelist
+    default_val = DEFAULT_WHITE_LIST_FOR_COPY_LOG_FILES
+    config["white_list_log_files"] = Prompt.ask(
+        f"  [cyan]Log files whitelist[/cyan]",
+        default=str(default_val)
+    )
     
     console.print()
     
@@ -1581,6 +1705,10 @@ def show_opening_screen():
     config_table.add_row("Working Directory", config["working_directory"])
     config_table.add_row("Backups Directory", config["backups_directory"])
     config_table.add_row("Output Directory", config["output_directory"])
+    config_table.add_row("Project Files Whitelist", str(config["white_list_project_files"]))
+    config_table.add_row("Translator Files Whitelist", str(config["white_list_translator_files"]))
+    config_table.add_row("Discriminator Files Whitelist", str(config["white_list_discriminator_files"]))
+    config_table.add_row("Log Files Whitelist", str(config["white_list_log_files"]))
     
     console.print(config_table)
     console.print()
@@ -1623,6 +1751,13 @@ def main():
             backup_dir = config_data.get('backups_directory', DEFAULT_CONFIG['backups_directory'])
             output_dir = config_data.get('output_directory', DEFAULT_CONFIG['output_directory'])
             
+            # Extract whitelists from config file
+            whitelist_config = config_data.get('white_list_for_copy', {})
+            white_list_project_files = whitelist_config.get('project_files', DEFAULT_WHITE_LIST_FOR_COPY_PROJECT_FILES)
+            white_list_translator_files = whitelist_config.get('translator_files', DEFAULT_WHITE_LIST_FOR_COPY_TRANSLATOR_FILES)
+            white_list_discriminator_files = whitelist_config.get('discriminator_files', DEFAULT_WHITE_LIST_FOR_COPY_DISCRIMINATOR_FILES)
+            white_list_log_files = whitelist_config.get('log_files', DEFAULT_WHITE_LIST_FOR_COPY_LOG_FILES)
+            
             # Show configuration summary
             config_table = Table(title="Configuration from File", box=box.ROUNDED)
             config_table.add_column("Setting", style="cyan")
@@ -1633,6 +1768,10 @@ def main():
             config_table.add_row("Working Directory", working_dir)
             config_table.add_row("Backups Directory", backup_dir)
             config_table.add_row("Output Directory", output_dir)
+            config_table.add_row("Project Files Whitelist", str(white_list_project_files))
+            config_table.add_row("Translator Files Whitelist", str(white_list_translator_files))
+            config_table.add_row("Discriminator Files Whitelist", str(white_list_discriminator_files))
+            config_table.add_row("Log Files Whitelist", str(white_list_log_files))
             
             console.print(config_table)
             console.print()
@@ -1642,7 +1781,13 @@ def main():
                 return
             
             # Start translation server with config file settings
-            server = TranslationServer(input_dir, working_dir, backup_dir, output_dir, max_parallel)
+            server = TranslationServer(
+                input_dir, working_dir, backup_dir, output_dir, max_parallel,
+                white_list_project_files=white_list_project_files,
+                white_list_translator_files=white_list_translator_files,
+                white_list_discriminator_files=white_list_discriminator_files,
+                white_list_log_files=white_list_log_files
+            )
             server.run()
             
         except FileNotFoundError:

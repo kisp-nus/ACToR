@@ -14,7 +14,7 @@
 #
 # Env vars
 # - IMAGE_BASE       base image tag (default: actor-sandbox)
-# - CONTAINER_NAME   container name (default: actor-sandbox-cont)
+# - CONTAINER_NAME   container name (default: actor-sandbox-cont-other)
 # - SNAP_TAG         snapshot tag to prefer (default: ${IMAGE_BASE}:saved)
 #
 # Usage
@@ -23,8 +23,8 @@
 
 set -euo pipefail
 
-IMAGE_BASE=${IMAGE_BASE:-actor-sandbox}
-CONTAINER_NAME=${CONTAINER_NAME:-actor-sandbox-cont}
+IMAGE_BASE=${IMAGE_BASE:-actor-sandbox:saved}
+CONTAINER_NAME=${CONTAINER_NAME:-actor-sandbox-cont-other}
 SNAP_TAG=${SNAP_TAG:-${IMAGE_BASE}:saved}
 
 # Optional extra docker flags (e.g., CAP_SYS_ADMIN fallback for bwrap)
@@ -86,4 +86,4 @@ docker run --rm -d --init -it --name "$CONTAINER_NAME" ${EXTRA_DOCKER_FLAGS} "${
     --mount type=volume,source=actor-sandetc,target=/etc/ \
     --tmpfs /tmp:rw,exec,nosuid,nodev \
     --tmpfs /run:rw,nosuid,nodev \
-    -p 18523:2223 "$IMAGE_TO_RUN" /bin/bash
+    -p 18525:2223 "$IMAGE_TO_RUN" /bin/bash

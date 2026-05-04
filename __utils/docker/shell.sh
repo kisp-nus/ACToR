@@ -1,1 +1,1 @@
-docker exec -it actor-sandbox-cont /bin/bash
+docker exec -it actor-sandbox-cont-other /bin/bash

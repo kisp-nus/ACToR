@@ -142,7 +142,7 @@ def sanity_check(code: str) -> tuple[bool, str]:
         return False, "[ERROR] Detected `::Mutex` in the code. You are not allowed to use `::Mutex` in your code."
     return True, ""
 
-def run_cc(work_dir: str, cc_name: str, task_prompt: str, _sanity_check: bool = True):
+def run_cc(work_dir: str, cc_name: str, task_prompt: str, _sanity_check: bool = True, model_name: str = "Sonnet-4.5"):
 
     ### clean the cc process
     output = subprocess.run(f"lproc -k {cc_name}", shell=True, capture_output=True)
@@ -151,7 +151,12 @@ def run_cc(work_dir: str, cc_name: str, task_prompt: str, _sanity_check: bool = 
     # assert output.returncode == 0, f"Failed to delete the cc process"
 
     ### init the cc process
-    output = subprocess.run(f"lproc -s {cc_name} [proxies/claudix-sandv2.py::sand]", cwd=f"{work_dir}/sandbox/", shell=True, capture_output=True)
+    if model_name == "Sonnet-4.5":
+        output = subprocess.run(f"lproc -s {cc_name} [proxies/claudix-sandv2.py::sand]", cwd=f"{work_dir}/sandbox/", shell=True, capture_output=True)
+    elif model_name == "Opus-4.6":
+        output = subprocess.run(f"lproc -s {cc_name} [proxies/claudix-sandv2-opus.py::sand]", cwd=f"{work_dir}/sandbox/", shell=True, capture_output=True)
+    else:
+        raise ValueError(f"Unknown model name: {model_name}")
     # print(output.stderr)
     assert output.returncode == 0, f"Failed to init the cc process"
     # print(output.stdout.decode("utf-8"))
@@ -226,7 +231,7 @@ def run_cc(work_dir: str, cc_name: str, task_prompt: str, _sanity_check: bool = 
         msg_text = msg.stdout.decode("utf-8")
         assert "AGE_ANY_IO:" in msg_text, f"Failed to get the cc input"
         age_io_seconds = int(msg_text.split("AGE_ANY_IO:")[1].split("seconds")[0])
-        if age_io_seconds > 180: ### 3 minutes
+        if age_io_seconds > 600: ### 10 minutes
             print(f"[WARNING] The CC is taking too long to respond. Force restart and resume the task.")
             with open(cc_stdin_path, "a") as f:
                 input_msg = {"type": "user", "message": {"role": "user", "content": [{"type": "text", "text": "[CLAUDIX:FORCE_RESTART_RESUME] You should continue your task."}]}}

@@ -1,14 +1,19 @@
 # Translation tool working directories
 .working/
 .working_BSD/
+.working_libs/
 .backups/
 .backups_BSD/
+.backups_libs/
 projects_output/
 projects_output_BSD/
+libs_output/
 __cache/
 __local_cache__/
 __arena_sandbox/
 __secret__/
+libs_input/
+lens/
 
 # Python
 __pycache__/
@@ -50,3 +55,12 @@ Thumbs.db
 # Logs
 *.log
 
+ancient_BSD_tests/
+others/
+others_tests/
+projects_input_other/
+projects_output_other/
+
+new_bsd.py
+new_bsd_other.py
+scripts/setup/
