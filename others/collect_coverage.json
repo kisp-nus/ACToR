@@ -1,0 +1,1913 @@
+[
+  {
+    "program": "cat",
+    "tests_total": 122,
+    "tests_pass": 122,
+    "tests_fail": 0,
+    "total_covered": 495,
+    "total_executable": 1283,
+    "total_percent": 38.58,
+    "main_source": {
+      "file": "cat.c",
+      "covered": 252,
+      "executable": 289,
+      "percent": 87.2
+    },
+    "files": [
+      {
+        "file": "quotearg.c",
+        "covered": 85,
+        "uncovered": 331,
+        "executable": 416,
+        "percent": 20.43
+      },
+      {
+        "file": "xmalloc.c",
+        "covered": 0,
+        "uncovered": 81,
+        "executable": 81,
+        "percent": 0.0
+      },
+      {
+        "file": "c-ctype.h",
+        "covered": 6,
+        "uncovered": 80,
+        "executable": 86,
+        "percent": 6.98
+      },
+      {
+        "file": "version-etc.c",
+        "covered": 23,
+        "uncovered": 53,
+        "executable": 76,
+        "percent": 30.26
+      },
+      {
+        "file": "cat.c",
+        "covered": 252,
+        "uncovered": 37,
+        "executable": 289,
+        "percent": 87.2
+      },
+      {
+        "file": "fcntl.c",
+        "covered": 12,
+        "uncovered": 36,
+        "executable": 48,
+        "percent": 25.0
+      },
+      {
+        "file": "stdbit.h",
+        "covered": 0,
+        "uncovered": 22,
+        "executable": 22,
+        "percent": 0.0
+      },
+      {
+        "file": "ialloc.h",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "mbrtoc32.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "setlocale_null-unlocked.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "closeout.c",
+        "covered": 4,
+        "uncovered": 13,
+        "executable": 17,
+        "percent": 23.53
+      },
+      {
+        "file": "fseeko.c",
+        "covered": 0,
+        "uncovered": 11,
+        "executable": 11,
+        "percent": 0.0
+      },
+      {
+        "file": "system.h",
+        "covered": 18,
+        "uncovered": 9,
+        "executable": 27,
+        "percent": 66.67
+      },
+      {
+        "file": "fflush.c",
+        "covered": 2,
+        "uncovered": 6,
+        "executable": 8,
+        "percent": 25.0
+      },
+      {
+        "file": "hard-locale.c",
+        "covered": 0,
+        "uncovered": 6,
+        "executable": 6,
+        "percent": 0.0
+      },
+      {
+        "file": "progname.c",
+        "covered": 8,
+        "uncovered": 6,
+        "executable": 14,
+        "percent": 57.14
+      },
+      {
+        "file": "fadvise.c",
+        "covered": 3,
+        "uncovered": 4,
+        "executable": 7,
+        "percent": 42.86
+      },
+      {
+        "file": "fclose.c",
+        "covered": 9,
+        "uncovered": 4,
+        "executable": 13,
+        "percent": 69.23
+      },
+      {
+        "file": "ioblksize.h",
+        "covered": 5,
+        "uncovered": 4,
+        "executable": 9,
+        "percent": 55.56
+      },
+      {
+        "file": "setlocale_null.c",
+        "covered": 0,
+        "uncovered": 4,
+        "executable": 4,
+        "percent": 0.0
+      },
+      {
+        "file": "close-stream.c",
+        "covered": 6,
+        "uncovered": 3,
+        "executable": 9,
+        "percent": 66.67
+      },
+      {
+        "file": "copy-file-range.c",
+        "covered": 7,
+        "uncovered": 3,
+        "executable": 10,
+        "percent": 70.0
+      },
+      {
+        "file": "full-write.c",
+        "covered": 11,
+        "uncovered": 3,
+        "executable": 14,
+        "percent": 78.57
+      },
+      {
+        "file": "safe-read.c",
+        "covered": 7,
+        "uncovered": 3,
+        "executable": 10,
+        "percent": 70.0
+      },
+      {
+        "file": "wchar.h",
+        "covered": 0,
+        "uncovered": 3,
+        "executable": 3,
+        "percent": 0.0
+      },
+      {
+        "file": "xalloc-die.c",
+        "covered": 0,
+        "uncovered": 3,
+        "executable": 3,
+        "percent": 0.0
+      },
+      {
+        "file": "fpurge.c",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "localcharset.c",
+        "covered": 5,
+        "uncovered": 2,
+        "executable": 7,
+        "percent": 71.43
+      },
+      {
+        "file": "xalloc.h",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "xbinary-io.h",
+        "covered": 3,
+        "uncovered": 2,
+        "executable": 5,
+        "percent": 60.0
+      },
+      {
+        "file": "c-strcasecmp.c",
+        "covered": 12,
+        "uncovered": 1,
+        "executable": 13,
+        "percent": 92.31
+      },
+      {
+        "file": "c32is-impl.h",
+        "covered": 0,
+        "uncovered": 1,
+        "executable": 1,
+        "percent": 0.0
+      },
+      {
+        "file": "uchar.h",
+        "covered": 0,
+        "uncovered": 1,
+        "executable": 1,
+        "percent": 0.0
+      },
+      {
+        "file": "xalignalloc.c",
+        "covered": 4,
+        "uncovered": 1,
+        "executable": 5,
+        "percent": 80.0
+      },
+      {
+        "file": "alignalloc.h",
+        "covered": 5,
+        "uncovered": 0,
+        "executable": 5,
+        "percent": 100.0
+      },
+      {
+        "file": "binary-io.h",
+        "covered": 4,
+        "uncovered": 0,
+        "executable": 4,
+        "percent": 100.0
+      },
+      {
+        "file": "propername-lite.c",
+        "covered": 4,
+        "uncovered": 0,
+        "executable": 4,
+        "percent": 100.0
+      }
+    ]
+  },
+  {
+    "program": "head",
+    "tests_total": 133,
+    "tests_pass": 133,
+    "tests_fail": 0,
+    "total_covered": 612,
+    "total_executable": 1453,
+    "total_percent": 42.12,
+    "main_source": {
+      "file": "head.c",
+      "covered": 302,
+      "executable": 435,
+      "percent": 69.43
+    },
+    "files": [
+      {
+        "file": "quotearg.c",
+        "covered": 111,
+        "uncovered": 305,
+        "executable": 416,
+        "percent": 26.68
+      },
+      {
+        "file": "head.c",
+        "covered": 302,
+        "uncovered": 133,
+        "executable": 435,
+        "percent": 69.43
+      },
+      {
+        "file": "c-ctype.h",
+        "covered": 6,
+        "uncovered": 80,
+        "executable": 86,
+        "percent": 6.98
+      },
+      {
+        "file": "xmalloc.c",
+        "covered": 11,
+        "uncovered": 70,
+        "executable": 81,
+        "percent": 13.58
+      },
+      {
+        "file": "xstrtol.c",
+        "covered": 50,
+        "uncovered": 54,
+        "executable": 104,
+        "percent": 48.08
+      },
+      {
+        "file": "version-etc.c",
+        "covered": 23,
+        "uncovered": 53,
+        "executable": 76,
+        "percent": 30.26
+      },
+      {
+        "file": "ialloc.h",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "mbrtoc32.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "setlocale_null-unlocked.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "closeout.c",
+        "covered": 4,
+        "uncovered": 13,
+        "executable": 17,
+        "percent": 23.53
+      },
+      {
+        "file": "fseeko.c",
+        "covered": 0,
+        "uncovered": 11,
+        "executable": 11,
+        "percent": 0.0
+      },
+      {
+        "file": "anytostr.c",
+        "covered": 0,
+        "uncovered": 10,
+        "executable": 10,
+        "percent": 0.0
+      },
+      {
+        "file": "xdectoint.c",
+        "covered": 11,
+        "uncovered": 7,
+        "executable": 18,
+        "percent": 61.11
+      },
+      {
+        "file": "fflush.c",
+        "covered": 2,
+        "uncovered": 6,
+        "executable": 8,
+        "percent": 25.0
+      },
+      {
+        "file": "hard-locale.c",
+        "covered": 0,
+        "uncovered": 6,
+        "executable": 6,
+        "percent": 0.0
+      },
+      {
+        "file": "progname.c",
+        "covered": 8,
+        "uncovered": 6,
+        "executable": 14,
+        "percent": 57.14
+      },
+      {
+        "file": "safe-read.c",
+        "covered": 4,
+        "uncovered": 6,
+        "executable": 10,
+        "percent": 40.0
+      },
+      {
+        "file": "fclose.c",
+        "covered": 9,
+        "uncovered": 4,
+        "executable": 13,
+        "percent": 69.23
+      },
+      {
+        "file": "setlocale_null.c",
+        "covered": 0,
+        "uncovered": 4,
+        "executable": 4,
+        "percent": 0.0
+      },
+      {
+        "file": "close-stream.c",
+        "covered": 6,
+        "uncovered": 3,
+        "executable": 9,
+        "percent": 66.67
+      },
+      {
+        "file": "wchar.h",
+        "covered": 0,
+        "uncovered": 3,
+        "executable": 3,
+        "percent": 0.0
+      },
+      {
+        "file": "xalloc-die.c",
+        "covered": 0,
+        "uncovered": 3,
+        "executable": 3,
+        "percent": 0.0
+      },
+      {
+        "file": "fpurge.c",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "localcharset.c",
+        "covered": 5,
+        "uncovered": 2,
+        "executable": 7,
+        "percent": 71.43
+      },
+      {
+        "file": "xalloc.h",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "xbinary-io.h",
+        "covered": 3,
+        "uncovered": 2,
+        "executable": 5,
+        "percent": 60.0
+      },
+      {
+        "file": "c-strcasecmp.c",
+        "covered": 12,
+        "uncovered": 1,
+        "executable": 13,
+        "percent": 92.31
+      },
+      {
+        "file": "c32is-impl.h",
+        "covered": 0,
+        "uncovered": 1,
+        "executable": 1,
+        "percent": 0.0
+      },
+      {
+        "file": "full-write.c",
+        "covered": 13,
+        "uncovered": 1,
+        "executable": 14,
+        "percent": 92.86
+      },
+      {
+        "file": "system.h",
+        "covered": 24,
+        "uncovered": 1,
+        "executable": 25,
+        "percent": 96.0
+      },
+      {
+        "file": "uchar.h",
+        "covered": 0,
+        "uncovered": 1,
+        "executable": 1,
+        "percent": 0.0
+      },
+      {
+        "file": "binary-io.h",
+        "covered": 4,
+        "uncovered": 0,
+        "executable": 4,
+        "percent": 100.0
+      },
+      {
+        "file": "propername-lite.c",
+        "covered": 4,
+        "uncovered": 0,
+        "executable": 4,
+        "percent": 100.0
+      }
+    ]
+  },
+  {
+    "program": "pwd",
+    "tests_total": 115,
+    "tests_pass": 115,
+    "tests_fail": 0,
+    "total_covered": 154,
+    "total_executable": 1013,
+    "total_percent": 15.2,
+    "main_source": {
+      "file": "pwd.c",
+      "covered": 54,
+      "executable": 148,
+      "percent": 36.49
+    },
+    "files": [
+      {
+        "file": "quotearg.c",
+        "covered": 0,
+        "uncovered": 416,
+        "executable": 416,
+        "percent": 0.0
+      },
+      {
+        "file": "pwd.c",
+        "covered": 54,
+        "uncovered": 94,
+        "executable": 148,
+        "percent": 36.49
+      },
+      {
+        "file": "xmalloc.c",
+        "covered": 0,
+        "uncovered": 81,
+        "executable": 81,
+        "percent": 0.0
+      },
+      {
+        "file": "c-ctype.h",
+        "covered": 6,
+        "uncovered": 80,
+        "executable": 86,
+        "percent": 6.98
+      },
+      {
+        "file": "version-etc.c",
+        "covered": 23,
+        "uncovered": 53,
+        "executable": 76,
+        "percent": 30.26
+      },
+      {
+        "file": "ialloc.h",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "mbrtoc32.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "setlocale_null-unlocked.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "closeout.c",
+        "covered": 4,
+        "uncovered": 13,
+        "executable": 17,
+        "percent": 23.53
+      },
+      {
+        "file": "fseeko.c",
+        "covered": 0,
+        "uncovered": 11,
+        "executable": 11,
+        "percent": 0.0
+      },
+      {
+        "file": "system.h",
+        "covered": 15,
+        "uncovered": 11,
+        "executable": 26,
+        "percent": 57.69
+      },
+      {
+        "file": "fflush.c",
+        "covered": 2,
+        "uncovered": 6,
+        "executable": 8,
+        "percent": 25.0
+      },
+      {
+        "file": "hard-locale.c",
+        "covered": 0,
+        "uncovered": 6,
+        "executable": 6,
+        "percent": 0.0
+      },
+      {
+        "file": "progname.c",
+        "covered": 8,
+        "uncovered": 6,
+        "executable": 14,
+        "percent": 57.14
+      },
+      {
+        "file": "root-dev-ino.c",
+        "covered": 0,
+        "uncovered": 6,
+        "executable": 6,
+        "percent": 0.0
+      },
+      {
+        "file": "fclose.c",
+        "covered": 9,
+        "uncovered": 4,
+        "executable": 13,
+        "percent": 69.23
+      },
+      {
+        "file": "setlocale_null.c",
+        "covered": 0,
+        "uncovered": 4,
+        "executable": 4,
+        "percent": 0.0
+      },
+      {
+        "file": "close-stream.c",
+        "covered": 6,
+        "uncovered": 3,
+        "executable": 9,
+        "percent": 66.67
+      },
+      {
+        "file": "wchar.h",
+        "covered": 0,
+        "uncovered": 3,
+        "executable": 3,
+        "percent": 0.0
+      },
+      {
+        "file": "xalloc-die.c",
+        "covered": 0,
+        "uncovered": 3,
+        "executable": 3,
+        "percent": 0.0
+      },
+      {
+        "file": "localcharset.c",
+        "covered": 5,
+        "uncovered": 2,
+        "executable": 7,
+        "percent": 71.43
+      },
+      {
+        "file": "xalloc.h",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "c-strcasecmp.c",
+        "covered": 12,
+        "uncovered": 1,
+        "executable": 13,
+        "percent": 92.31
+      },
+      {
+        "file": "c32is-impl.h",
+        "covered": 0,
+        "uncovered": 1,
+        "executable": 1,
+        "percent": 0.0
+      },
+      {
+        "file": "uchar.h",
+        "covered": 0,
+        "uncovered": 1,
+        "executable": 1,
+        "percent": 0.0
+      },
+      {
+        "file": "xgetcwd.c",
+        "covered": 4,
+        "uncovered": 1,
+        "executable": 5,
+        "percent": 80.0
+      },
+      {
+        "file": "propername-lite.c",
+        "covered": 4,
+        "uncovered": 0,
+        "executable": 4,
+        "percent": 100.0
+      },
+      {
+        "file": "same-inode.h",
+        "covered": 2,
+        "uncovered": 0,
+        "executable": 2,
+        "percent": 100.0
+      }
+    ]
+  },
+  {
+    "program": "split",
+    "tests_total": 180,
+    "tests_pass": 180,
+    "tests_fail": 0,
+    "total_covered": 899,
+    "total_executable": 1808,
+    "total_percent": 49.72,
+    "main_source": {
+      "file": "split.c",
+      "covered": 592,
+      "executable": 743,
+      "percent": 79.68
+    },
+    "files": [
+      {
+        "file": "quotearg.c",
+        "covered": 130,
+        "uncovered": 286,
+        "executable": 416,
+        "percent": 31.25
+      },
+      {
+        "file": "split.c",
+        "covered": 592,
+        "uncovered": 151,
+        "executable": 743,
+        "percent": 79.68
+      },
+      {
+        "file": "c-ctype.h",
+        "covered": 6,
+        "uncovered": 80,
+        "executable": 86,
+        "percent": 6.98
+      },
+      {
+        "file": "version-etc.c",
+        "covered": 23,
+        "uncovered": 53,
+        "executable": 76,
+        "percent": 30.26
+      },
+      {
+        "file": "fcntl.c",
+        "covered": 0,
+        "uncovered": 48,
+        "executable": 48,
+        "percent": 0.0
+      },
+      {
+        "file": "sig2str.c",
+        "covered": 0,
+        "uncovered": 41,
+        "executable": 41,
+        "percent": 0.0
+      },
+      {
+        "file": "temp-stream.c",
+        "covered": 0,
+        "uncovered": 40,
+        "executable": 40,
+        "percent": 0.0
+      },
+      {
+        "file": "tmpdir.c",
+        "covered": 0,
+        "uncovered": 28,
+        "executable": 28,
+        "percent": 0.0
+      },
+      {
+        "file": "stdbit.h",
+        "covered": 0,
+        "uncovered": 22,
+        "executable": 22,
+        "percent": 0.0
+      },
+      {
+        "file": "mbrtoc32.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "setlocale_null-unlocked.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "closeout.c",
+        "covered": 4,
+        "uncovered": 13,
+        "executable": 17,
+        "percent": 23.53
+      },
+      {
+        "file": "fseeko.c",
+        "covered": 0,
+        "uncovered": 11,
+        "executable": 11,
+        "percent": 0.0
+      },
+      {
+        "file": "system.h",
+        "covered": 25,
+        "uncovered": 10,
+        "executable": 35,
+        "percent": 71.43
+      },
+      {
+        "file": "fd-safer-flag.c",
+        "covered": 0,
+        "uncovered": 8,
+        "executable": 8,
+        "percent": 0.0
+      },
+      {
+        "file": "basename-lgpl.c",
+        "covered": 12,
+        "uncovered": 6,
+        "executable": 18,
+        "percent": 66.67
+      },
+      {
+        "file": "fflush.c",
+        "covered": 2,
+        "uncovered": 6,
+        "executable": 8,
+        "percent": 25.0
+      },
+      {
+        "file": "hard-locale.c",
+        "covered": 0,
+        "uncovered": 6,
+        "executable": 6,
+        "percent": 0.0
+      },
+      {
+        "file": "ialloc.h",
+        "covered": 11,
+        "uncovered": 6,
+        "executable": 17,
+        "percent": 64.71
+      },
+      {
+        "file": "progname.c",
+        "covered": 8,
+        "uncovered": 6,
+        "executable": 14,
+        "percent": 57.14
+      },
+      {
+        "file": "safe-read.c",
+        "covered": 4,
+        "uncovered": 6,
+        "executable": 10,
+        "percent": 40.0
+      },
+      {
+        "file": "fd-safer.c",
+        "covered": 3,
+        "uncovered": 5,
+        "executable": 8,
+        "percent": 37.5
+      },
+      {
+        "file": "fadvise.c",
+        "covered": 3,
+        "uncovered": 4,
+        "executable": 7,
+        "percent": 42.86
+      },
+      {
+        "file": "fclose.c",
+        "covered": 9,
+        "uncovered": 4,
+        "executable": 13,
+        "percent": 69.23
+      },
+      {
+        "file": "ioblksize.h",
+        "covered": 5,
+        "uncovered": 4,
+        "executable": 9,
+        "percent": 55.56
+      },
+      {
+        "file": "mkstemp-safer.c",
+        "covered": 0,
+        "uncovered": 4,
+        "executable": 4,
+        "percent": 0.0
+      },
+      {
+        "file": "setlocale_null.c",
+        "covered": 0,
+        "uncovered": 4,
+        "executable": 4,
+        "percent": 0.0
+      },
+      {
+        "file": "alignalloc.h",
+        "covered": 2,
+        "uncovered": 3,
+        "executable": 5,
+        "percent": 40.0
+      },
+      {
+        "file": "close-stream.c",
+        "covered": 6,
+        "uncovered": 3,
+        "executable": 9,
+        "percent": 66.67
+      },
+      {
+        "file": "full-write.c",
+        "covered": 11,
+        "uncovered": 3,
+        "executable": 14,
+        "percent": 78.57
+      },
+      {
+        "file": "wchar.h",
+        "covered": 0,
+        "uncovered": 3,
+        "executable": 3,
+        "percent": 0.0
+      },
+      {
+        "file": "dup-safer-flag.c",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "dup-safer.c",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "fpurge.c",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "localcharset.c",
+        "covered": 5,
+        "uncovered": 2,
+        "executable": 7,
+        "percent": 71.43
+      },
+      {
+        "file": "c-strcasecmp.c",
+        "covered": 12,
+        "uncovered": 1,
+        "executable": 13,
+        "percent": 92.31
+      },
+      {
+        "file": "c32is-impl.h",
+        "covered": 0,
+        "uncovered": 1,
+        "executable": 1,
+        "percent": 0.0
+      },
+      {
+        "file": "uchar.h",
+        "covered": 0,
+        "uncovered": 1,
+        "executable": 1,
+        "percent": 0.0
+      },
+      {
+        "file": "binary-io.h",
+        "covered": 4,
+        "uncovered": 0,
+        "executable": 4,
+        "percent": 100.0
+      },
+      {
+        "file": "fd-reopen.c",
+        "covered": 9,
+        "uncovered": 0,
+        "executable": 9,
+        "percent": 100.0
+      },
+      {
+        "file": "open-safer.c",
+        "covered": 7,
+        "uncovered": 0,
+        "executable": 7,
+        "percent": 100.0
+      },
+      {
+        "file": "propername-lite.c",
+        "covered": 4,
+        "uncovered": 0,
+        "executable": 4,
+        "percent": 100.0
+      },
+      {
+        "file": "same-inode.h",
+        "covered": 2,
+        "uncovered": 0,
+        "executable": 2,
+        "percent": 100.0
+      }
+    ]
+  },
+  {
+    "program": "tail",
+    "tests_total": 151,
+    "tests_pass": 151,
+    "tests_fail": 0,
+    "total_covered": 964,
+    "total_executable": 2864,
+    "total_percent": 33.66,
+    "main_source": {
+      "file": "tail.c",
+      "covered": 556,
+      "executable": 973,
+      "percent": 57.14
+    },
+    "files": [
+      {
+        "file": "tail.c",
+        "covered": 556,
+        "uncovered": 417,
+        "executable": 973,
+        "percent": 57.14
+      },
+      {
+        "file": "hash.c",
+        "covered": 69,
+        "uncovered": 313,
+        "executable": 382,
+        "percent": 18.06
+      },
+      {
+        "file": "quotearg.c",
+        "covered": 107,
+        "uncovered": 309,
+        "executable": 416,
+        "percent": 25.72
+      },
+      {
+        "file": "fs-is-local.h",
+        "covered": 4,
+        "uncovered": 133,
+        "executable": 137,
+        "percent": 2.92
+      },
+      {
+        "file": "c-ctype.h",
+        "covered": 6,
+        "uncovered": 80,
+        "executable": 86,
+        "percent": 6.98
+      },
+      {
+        "file": "iopoll.c",
+        "covered": 0,
+        "uncovered": 58,
+        "executable": 58,
+        "percent": 0.0
+      },
+      {
+        "file": "argmatch.c",
+        "covered": 0,
+        "uncovered": 57,
+        "executable": 57,
+        "percent": 0.0
+      },
+      {
+        "file": "xstrtol.c",
+        "covered": 51,
+        "uncovered": 53,
+        "executable": 104,
+        "percent": 49.04
+      },
+      {
+        "file": "version-etc.c",
+        "covered": 24,
+        "uncovered": 52,
+        "executable": 76,
+        "percent": 31.58
+      },
+      {
+        "file": "xmalloc.c",
+        "covered": 31,
+        "uncovered": 50,
+        "executable": 81,
+        "percent": 38.27
+      },
+      {
+        "file": "fcntl.c",
+        "covered": 0,
+        "uncovered": 48,
+        "executable": 48,
+        "percent": 0.0
+      },
+      {
+        "file": "bitrotate.h",
+        "covered": 0,
+        "uncovered": 22,
+        "executable": 22,
+        "percent": 0.0
+      },
+      {
+        "file": "dirname-lgpl.c",
+        "covered": 0,
+        "uncovered": 20,
+        "executable": 20,
+        "percent": 0.0
+      },
+      {
+        "file": "basename-lgpl.c",
+        "covered": 0,
+        "uncovered": 18,
+        "executable": 18,
+        "percent": 0.0
+      },
+      {
+        "file": "nanosleep.c",
+        "covered": 0,
+        "uncovered": 18,
+        "executable": 18,
+        "percent": 0.0
+      },
+      {
+        "file": "ialloc.h",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "mbrtoc32.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "setlocale_null-unlocked.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "stat-time.h",
+        "covered": 2,
+        "uncovered": 17,
+        "executable": 19,
+        "percent": 10.53
+      },
+      {
+        "file": "dtotimespec.c",
+        "covered": 0,
+        "uncovered": 15,
+        "executable": 15,
+        "percent": 0.0
+      },
+      {
+        "file": "closeout.c",
+        "covered": 4,
+        "uncovered": 13,
+        "executable": 17,
+        "percent": 23.53
+      },
+      {
+        "file": "c-strtod.c",
+        "covered": 0,
+        "uncovered": 12,
+        "executable": 12,
+        "percent": 0.0
+      },
+      {
+        "file": "xstrtod.c",
+        "covered": 0,
+        "uncovered": 12,
+        "executable": 12,
+        "percent": 0.0
+      },
+      {
+        "file": "cl-strtod.c",
+        "covered": 0,
+        "uncovered": 11,
+        "executable": 11,
+        "percent": 0.0
+      },
+      {
+        "file": "fseeko.c",
+        "covered": 0,
+        "uncovered": 11,
+        "executable": 11,
+        "percent": 0.0
+      },
+      {
+        "file": "xnanosleep.c",
+        "covered": 0,
+        "uncovered": 11,
+        "executable": 11,
+        "percent": 0.0
+      },
+      {
+        "file": "anytostr.c",
+        "covered": 0,
+        "uncovered": 10,
+        "executable": 10,
+        "percent": 0.0
+      },
+      {
+        "file": "isapipe.c",
+        "covered": 0,
+        "uncovered": 8,
+        "executable": 8,
+        "percent": 0.0
+      },
+      {
+        "file": "system.h",
+        "covered": 24,
+        "uncovered": 7,
+        "executable": 31,
+        "percent": 77.42
+      },
+      {
+        "file": "fflush.c",
+        "covered": 2,
+        "uncovered": 6,
+        "executable": 8,
+        "percent": 25.0
+      },
+      {
+        "file": "hard-locale.c",
+        "covered": 0,
+        "uncovered": 6,
+        "executable": 6,
+        "percent": 0.0
+      },
+      {
+        "file": "progname.c",
+        "covered": 8,
+        "uncovered": 6,
+        "executable": 14,
+        "percent": 57.14
+      },
+      {
+        "file": "timespec.h",
+        "covered": 2,
+        "uncovered": 6,
+        "executable": 8,
+        "percent": 25.0
+      },
+      {
+        "file": "xdectoint.c",
+        "covered": 12,
+        "uncovered": 6,
+        "executable": 18,
+        "percent": 66.67
+      },
+      {
+        "file": "fd-safer.c",
+        "covered": 3,
+        "uncovered": 5,
+        "executable": 8,
+        "percent": 37.5
+      },
+      {
+        "file": "fclose.c",
+        "covered": 9,
+        "uncovered": 4,
+        "executable": 13,
+        "percent": 69.23
+      },
+      {
+        "file": "setlocale_null.c",
+        "covered": 0,
+        "uncovered": 4,
+        "executable": 4,
+        "percent": 0.0
+      },
+      {
+        "file": "close-stream.c",
+        "covered": 6,
+        "uncovered": 3,
+        "executable": 9,
+        "percent": 66.67
+      },
+      {
+        "file": "open-safer.c",
+        "covered": 4,
+        "uncovered": 3,
+        "executable": 7,
+        "percent": 57.14
+      },
+      {
+        "file": "posixver.c",
+        "covered": 5,
+        "uncovered": 3,
+        "executable": 8,
+        "percent": 62.5
+      },
+      {
+        "file": "safe-read.c",
+        "covered": 7,
+        "uncovered": 3,
+        "executable": 10,
+        "percent": 70.0
+      },
+      {
+        "file": "wchar.h",
+        "covered": 0,
+        "uncovered": 3,
+        "executable": 3,
+        "percent": 0.0
+      },
+      {
+        "file": "xalloc-die.c",
+        "covered": 0,
+        "uncovered": 3,
+        "executable": 3,
+        "percent": 0.0
+      },
+      {
+        "file": "dup-safer.c",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "fpurge.c",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "localcharset.c",
+        "covered": 5,
+        "uncovered": 2,
+        "executable": 7,
+        "percent": 71.43
+      },
+      {
+        "file": "xalloc.h",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "xbinary-io.h",
+        "covered": 3,
+        "uncovered": 2,
+        "executable": 5,
+        "percent": 60.0
+      },
+      {
+        "file": "c-strcasecmp.c",
+        "covered": 12,
+        "uncovered": 1,
+        "executable": 13,
+        "percent": 92.31
+      },
+      {
+        "file": "c32is-impl.h",
+        "covered": 0,
+        "uncovered": 1,
+        "executable": 1,
+        "percent": 0.0
+      },
+      {
+        "file": "uchar.h",
+        "covered": 0,
+        "uncovered": 1,
+        "executable": 1,
+        "percent": 0.0
+      },
+      {
+        "file": "binary-io.h",
+        "covered": 4,
+        "uncovered": 0,
+        "executable": 4,
+        "percent": 100.0
+      },
+      {
+        "file": "propername-lite.c",
+        "covered": 4,
+        "uncovered": 0,
+        "executable": 4,
+        "percent": 100.0
+      }
+    ]
+  },
+  {
+    "program": "truncate",
+    "tests_total": 84,
+    "tests_pass": 84,
+    "tests_fail": 0,
+    "total_covered": 441,
+    "total_executable": 1130,
+    "total_percent": 39.03,
+    "main_source": {
+      "file": "truncate.c",
+      "covered": 133,
+      "executable": 160,
+      "percent": 83.12
+    },
+    "files": [
+      {
+        "file": "quotearg.c",
+        "covered": 123,
+        "uncovered": 293,
+        "executable": 416,
+        "percent": 29.57
+      },
+      {
+        "file": "c-ctype.h",
+        "covered": 6,
+        "uncovered": 80,
+        "executable": 86,
+        "percent": 6.98
+      },
+      {
+        "file": "xstrtol.c",
+        "covered": 43,
+        "uncovered": 55,
+        "executable": 98,
+        "percent": 43.88
+      },
+      {
+        "file": "xmalloc.c",
+        "covered": 27,
+        "uncovered": 54,
+        "executable": 81,
+        "percent": 33.33
+      },
+      {
+        "file": "version-etc.c",
+        "covered": 23,
+        "uncovered": 53,
+        "executable": 76,
+        "percent": 30.26
+      },
+      {
+        "file": "truncate.c",
+        "covered": 133,
+        "uncovered": 27,
+        "executable": 160,
+        "percent": 83.12
+      },
+      {
+        "file": "ialloc.h",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "mbrtoc32.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "setlocale_null-unlocked.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "closeout.c",
+        "covered": 4,
+        "uncovered": 13,
+        "executable": 17,
+        "percent": 23.53
+      },
+      {
+        "file": "fseeko.c",
+        "covered": 0,
+        "uncovered": 11,
+        "executable": 11,
+        "percent": 0.0
+      },
+      {
+        "file": "xdectoint.c",
+        "covered": 11,
+        "uncovered": 9,
+        "executable": 20,
+        "percent": 55.0
+      },
+      {
+        "file": "fflush.c",
+        "covered": 2,
+        "uncovered": 6,
+        "executable": 8,
+        "percent": 25.0
+      },
+      {
+        "file": "hard-locale.c",
+        "covered": 0,
+        "uncovered": 6,
+        "executable": 6,
+        "percent": 0.0
+      },
+      {
+        "file": "progname.c",
+        "covered": 8,
+        "uncovered": 6,
+        "executable": 14,
+        "percent": 57.14
+      },
+      {
+        "file": "fclose.c",
+        "covered": 9,
+        "uncovered": 4,
+        "executable": 13,
+        "percent": 69.23
+      },
+      {
+        "file": "setlocale_null.c",
+        "covered": 0,
+        "uncovered": 4,
+        "executable": 4,
+        "percent": 0.0
+      },
+      {
+        "file": "close-stream.c",
+        "covered": 6,
+        "uncovered": 3,
+        "executable": 9,
+        "percent": 66.67
+      },
+      {
+        "file": "wchar.h",
+        "covered": 0,
+        "uncovered": 3,
+        "executable": 3,
+        "percent": 0.0
+      },
+      {
+        "file": "xalloc-die.c",
+        "covered": 0,
+        "uncovered": 3,
+        "executable": 3,
+        "percent": 0.0
+      },
+      {
+        "file": "localcharset.c",
+        "covered": 5,
+        "uncovered": 2,
+        "executable": 7,
+        "percent": 71.43
+      },
+      {
+        "file": "xalloc.h",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "c-strcasecmp.c",
+        "covered": 12,
+        "uncovered": 1,
+        "executable": 13,
+        "percent": 92.31
+      },
+      {
+        "file": "c32is-impl.h",
+        "covered": 0,
+        "uncovered": 1,
+        "executable": 1,
+        "percent": 0.0
+      },
+      {
+        "file": "system.h",
+        "covered": 25,
+        "uncovered": 1,
+        "executable": 26,
+        "percent": 96.15
+      },
+      {
+        "file": "uchar.h",
+        "covered": 0,
+        "uncovered": 1,
+        "executable": 1,
+        "percent": 0.0
+      },
+      {
+        "file": "propername-lite.c",
+        "covered": 4,
+        "uncovered": 0,
+        "executable": 4,
+        "percent": 100.0
+      }
+    ]
+  },
+  {
+    "program": "uniq",
+    "tests_total": 104,
+    "tests_pass": 104,
+    "tests_fail": 0,
+    "total_covered": 544,
+    "total_executable": 1389,
+    "total_percent": 39.16,
+    "main_source": {
+      "file": "uniq.c",
+      "covered": 200,
+      "executable": 235,
+      "percent": 85.11
+    },
+    "files": [
+      {
+        "file": "quotearg.c",
+        "covered": 115,
+        "uncovered": 301,
+        "executable": 416,
+        "percent": 27.64
+      },
+      {
+        "file": "xstrtol.c",
+        "covered": 14,
+        "uncovered": 84,
+        "executable": 98,
+        "percent": 14.29
+      },
+      {
+        "file": "c-ctype.h",
+        "covered": 6,
+        "uncovered": 80,
+        "executable": 86,
+        "percent": 6.98
+      },
+      {
+        "file": "xmalloc.c",
+        "covered": 20,
+        "uncovered": 61,
+        "executable": 81,
+        "percent": 24.69
+      },
+      {
+        "file": "version-etc.c",
+        "covered": 23,
+        "uncovered": 53,
+        "executable": 76,
+        "percent": 30.26
+      },
+      {
+        "file": "argmatch.c",
+        "covered": 13,
+        "uncovered": 44,
+        "executable": 57,
+        "percent": 22.81
+      },
+      {
+        "file": "uniq.c",
+        "covered": 200,
+        "uncovered": 35,
+        "executable": 235,
+        "percent": 85.11
+      },
+      {
+        "file": "mcel.h",
+        "covered": 11,
+        "uncovered": 26,
+        "executable": 37,
+        "percent": 29.73
+      },
+      {
+        "file": "freopen-safer.c",
+        "covered": 18,
+        "uncovered": 20,
+        "executable": 38,
+        "percent": 47.37
+      },
+      {
+        "file": "ialloc.h",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "mbrtoc32.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "setlocale_null-unlocked.c",
+        "covered": 0,
+        "uncovered": 17,
+        "executable": 17,
+        "percent": 0.0
+      },
+      {
+        "file": "closeout.c",
+        "covered": 4,
+        "uncovered": 13,
+        "executable": 17,
+        "percent": 23.53
+      },
+      {
+        "file": "fseeko.c",
+        "covered": 0,
+        "uncovered": 11,
+        "executable": 11,
+        "percent": 0.0
+      },
+      {
+        "file": "posixver.c",
+        "covered": 0,
+        "uncovered": 8,
+        "executable": 8,
+        "percent": 0.0
+      },
+      {
+        "file": "linebuffer.c",
+        "covered": 24,
+        "uncovered": 7,
+        "executable": 31,
+        "percent": 77.42
+      },
+      {
+        "file": "system.h",
+        "covered": 18,
+        "uncovered": 7,
+        "executable": 25,
+        "percent": 72.0
+      },
+      {
+        "file": "hard-locale.c",
+        "covered": 0,
+        "uncovered": 6,
+        "executable": 6,
+        "percent": 0.0
+      },
+      {
+        "file": "progname.c",
+        "covered": 8,
+        "uncovered": 6,
+        "executable": 14,
+        "percent": 57.14
+      },
+      {
+        "file": "skipchars.h",
+        "covered": 6,
+        "uncovered": 6,
+        "executable": 12,
+        "percent": 50.0
+      },
+      {
+        "file": "fclose.c",
+        "covered": 9,
+        "uncovered": 4,
+        "executable": 13,
+        "percent": 69.23
+      },
+      {
+        "file": "setlocale_null.c",
+        "covered": 0,
+        "uncovered": 4,
+        "executable": 4,
+        "percent": 0.0
+      },
+      {
+        "file": "close-stream.c",
+        "covered": 6,
+        "uncovered": 3,
+        "executable": 9,
+        "percent": 66.67
+      },
+      {
+        "file": "wchar.h",
+        "covered": 0,
+        "uncovered": 3,
+        "executable": 3,
+        "percent": 0.0
+      },
+      {
+        "file": "xalloc-die.c",
+        "covered": 0,
+        "uncovered": 3,
+        "executable": 3,
+        "percent": 0.0
+      },
+      {
+        "file": "fpurge.c",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "localcharset.c",
+        "covered": 5,
+        "uncovered": 2,
+        "executable": 7,
+        "percent": 71.43
+      },
+      {
+        "file": "xalloc.h",
+        "covered": 0,
+        "uncovered": 2,
+        "executable": 2,
+        "percent": 0.0
+      },
+      {
+        "file": "c-strcasecmp.c",
+        "covered": 12,
+        "uncovered": 1,
+        "executable": 13,
+        "percent": 92.31
+      },
+      {
+        "file": "fflush.c",
+        "covered": 7,
+        "uncovered": 1,
+        "executable": 8,
+        "percent": 87.5
+      },
+      {
+        "file": "uchar.h",
+        "covered": 1,
+        "uncovered": 1,
+        "executable": 2,
+        "percent": 50.0
+      },
+      {
+        "file": "c32is-impl.h",
+        "covered": 1,
+        "uncovered": 0,
+        "executable": 1,
+        "percent": 100.0
+      },
+      {
+        "file": "fadvise.c",
+        "covered": 7,
+        "uncovered": 0,
+        "executable": 7,
+        "percent": 100.0
+      },
+      {
+        "file": "memcasecmp.c",
+        "covered": 12,
+        "uncovered": 0,
+        "executable": 12,
+        "percent": 100.0
+      },
+      {
+        "file": "propername-lite.c",
+        "covered": 4,
+        "uncovered": 0,
+        "executable": 4,
+        "percent": 100.0
+      }
+    ]
+  }
+]

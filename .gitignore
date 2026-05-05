@@ -2,12 +2,15 @@
 .working/
 .working_BSD/
 .working_libs/
+.working_coreutils/
 .backups/
 .backups_BSD/
 .backups_libs/
+.backups_coreutils/
 projects_output/
 projects_output_BSD/
 libs_output/
+coreutils_output/
 __cache/
 __local_cache__/
 __arena_sandbox/
@@ -56,11 +59,13 @@ Thumbs.db
 *.log
 
 ancient_BSD_tests/
-others/
 others_tests/
 projects_input_other/
+projects_input_coreutils/
 projects_output_other/
+
 
 new_bsd.py
 new_bsd_other.py
 scripts/setup/
+collect_test_cases_macro/

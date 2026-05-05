@@ -1,0 +1,7 @@
+- [x] cat
+- [x] head
+- [x] pwd
+- [x] split
+- [x] tail
+- [x] truncate
+- [x] uniq
