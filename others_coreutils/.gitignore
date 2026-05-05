@@ -1,0 +1,8 @@
+*.o
+*.gcda
+*.gcno
+*.gcov
+*.ref
+*.profdata
+*.profraw
+target/

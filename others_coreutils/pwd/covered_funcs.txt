@@ -1,0 +1,16 @@
+proper_name_lite
+rpl_fclose
+version_etc_arn
+set_program_name
+version_etc_va
+psame_inode
+c_tolower
+c_strcasecmp
+close_stdout
+xgetcwd
+close_stream
+main_0
+logical_getcwd
+version_etc
+rpl_fflush
+locale_charset

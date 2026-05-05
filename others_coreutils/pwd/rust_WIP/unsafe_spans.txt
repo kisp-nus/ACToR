@@ -1,0 +1,719 @@
+src/pwd.rs:254:24: 254:138
+unsafe { std::ffi::CStr::from_ptr(gettext(b"GNU coreutils\0".as_ptr() as *const libc::c_char)).to_string_lossy() }
+src/pwd.rs:262:5: 264:6
+unsafe {
+        lc_messages = setlocale(5, std::ptr::null());
+    }
+src/pwd.rs:266:34: 266:100
+unsafe { std::ffi::CStr::from_ptr(lc_messages).to_string_lossy() }
+src/pwd.rs:267:30: 267:200
+unsafe { std::ffi::CStr::from_ptr(gettext(b"Report any translation bugs to <https://translationproject.org/team/>\0".as_ptr() as *const libc::c_char)).to_string_lossy() }
+src/pwd.rs:287:1: 296:2
+unsafe extern "C" fn readdir_ignoring_dot_and_dotdot(
+    mut dirp: *mut DIR,
+) -> *const dirent {
+    loop {
+        let mut dp: *const dirent = readdir(dirp);
+        if dp.is_null() || !dot_or_dotdot(((*dp).d_name).as_ptr()) {
+            return dp;
+        }
+    };
+}
+src/pwd.rs:299:17: 299:63
+unsafe { std::ffi::CStr::from_ptr(file_name) }
+src/pwd.rs:367:13: 367:218
+unsafe { std::ffi::CStr::from_ptr(gettext(format!("Try '{} --help' for more information.\n", unsafe { std::ffi::CStr::from_ptr(program_name).to_str().unwrap() }).as_ptr() as *const i8)).to_string_lossy() }
+src/pwd.rs:372:13: 372:202
+unsafe { std::ffi::CStr::from_ptr(gettext(format!("Usage: {} [OPTION]...\n", unsafe { std::ffi::CStr::from_ptr(program_name).to_str().unwrap() }).as_ptr() as *const i8)).to_string_lossy() }
+src/pwd.rs:376:13: 376:162
+unsafe { std::ffi::CStr::from_ptr(gettext("Print the full filename of the current working directory.\n\0".as_ptr() as *const i8)).to_string_lossy() }
+src/pwd.rs:380:13: 380:177
+unsafe { std::ffi::CStr::from_ptr(gettext("  -L, --logical   use PWD from environment, even if it contains symlinks\n\0".as_ptr() as *const i8)).to_string_lossy() }
+src/pwd.rs:384:13: 384:143
+unsafe { std::ffi::CStr::from_ptr(gettext("  -P, --physical  resolve all symlinks\n\0".as_ptr() as *const i8)).to_string_lossy() }
+src/pwd.rs:388:13: 388:151
+unsafe { std::ffi::CStr::from_ptr(gettext("      --help        display this help and exit\n\0".as_ptr() as *const i8)).to_string_lossy() }
+src/pwd.rs:392:13: 392:160
+unsafe { std::ffi::CStr::from_ptr(gettext("      --version     output version information and exit\n\0".as_ptr() as *const i8)).to_string_lossy() }
+src/pwd.rs:396:13: 396:148
+unsafe { std::ffi::CStr::from_ptr(gettext("\nIf no option is specified, -P is assumed.\n\0".as_ptr() as *const i8)).to_string_lossy() }
+src/pwd.rs:400:13: 400:307
+unsafe { std::ffi::CStr::from_ptr(gettext(format!("\nYour shell may have its own version of {}, which usually supersedes\nthe version described here.  Please refer to your shell's documentation\nfor details about the options it supports.\n\0", "pwd").as_ptr() as *const i8)).to_string_lossy() }
+src/pwd.rs:407:1: 410:2
+unsafe extern "C" fn file_name_free(mut p: *mut file_name) {
+    free((*p).buf as *mut libc::c_void);
+    free(p as *mut libc::c_void);
+}
+src/pwd.rs:421:5: 424:6
+unsafe {
+        start = buf.as_mut_ptr().add(n_alloc as usize - 1); // Pointer to the end of the buffer
+        *start = '\0' as i8; // Null-terminate the buffer
+    }
+src/pwd.rs:437:1: 473:2
+unsafe extern "C" fn file_name_prepend(
+    mut p: *mut file_name,
+    mut s: *const libc::c_char,
+    mut s_len: size_t,
+) {
+    let mut n_free: size_t = ((*p).start).offset_from((*p).buf) as libc::c_long
+        as size_t;
+    if n_free < (1 as libc::c_int as libc::c_ulong).wrapping_add(s_len) {
+        let mut half: size_t = ((*p).n_alloc)
+            .wrapping_add(1 as libc::c_int as libc::c_ulong)
+            .wrapping_add(s_len);
+        let mut q: *mut libc::c_char = xnmalloc(2 as libc::c_int as size_t, half)
+            as *mut libc::c_char;
+        let mut n_used: size_t = ((*p).n_alloc).wrapping_sub(n_free);
+        (*p)
+            .start = q
+            .offset((2 as libc::c_int as libc::c_ulong).wrapping_mul(half) as isize)
+            .offset(-(n_used as isize));
+        memcpy(
+            (*p).start as *mut libc::c_void,
+            ((*p).buf).offset(n_free as isize) as *const libc::c_void,
+            n_used,
+        );
+        free((*p).buf as *mut libc::c_void);
+        (*p).buf = q;
+        (*p).n_alloc = (2 as libc::c_int as libc::c_ulong).wrapping_mul(half);
+    }
+    (*p)
+        .start = ((*p).start)
+        .offset(-((1 as libc::c_int as libc::c_ulong).wrapping_add(s_len) as isize));
+    *((*p).start).offset(0 as libc::c_int as isize) = '/' as i32 as libc::c_char;
+    memcpy(
+        ((*p).start).offset(1 as libc::c_int as isize) as *mut libc::c_void,
+        s as *const libc::c_void,
+        s_len,
+    );
+}
+src/pwd.rs:484:1: 766:2
+unsafe extern "C" fn find_dir_entry(
+    mut dot_sb: *mut stat,
+    mut file_name: *mut file_name,
+    mut parent_height: size_t,
+) {
+    let mut dirp: *mut DIR = 0 as *mut DIR;
+    let mut fd: libc::c_int = 0;
+    let mut parent_sb: stat = stat {
+        st_dev: 0,
+        st_ino: 0,
+        st_mode: 0,
+        st_nlink: 0,
+        st_uid: 0,
+        st_gid: 0,
+        st_rdev: 0,
+        __pad1: 0,
+        st_size: 0,
+        st_blksize: 0,
+        __pad2: 0,
+        st_blocks: 0,
+        st_atim: timespec { tv_sec: 0, tv_nsec: 0 },
+        st_mtim: timespec { tv_sec: 0, tv_nsec: 0 },
+        st_ctim: timespec { tv_sec: 0, tv_nsec: 0 },
+        __glibc_reserved: [0; 2],
+    };
+    let mut use_lstat: bool = false;
+    let mut found: bool = false;
+    dirp = opendir(b"..\0" as *const u8 as *const libc::c_char);
+    if dirp.is_null() {
+        if 0 != 0 {
+            let parent_path = nth_parent(parent_height.try_into().unwrap());
+error(
+    1,
+    *__errno_location(),
+    gettext(b"cannot open directory %s\0" as *const u8 as *const libc::c_char),
+    quote(parent_path),
+);
+            if 1 as libc::c_int != 0 as libc::c_int {
+                unreachable!();
+            } else {};
+        } else {
+            ({
+                let __errstatus: libc::c_int = 1 as libc::c_int;
+                let parent_path = nth_parent(parent_height.try_into().unwrap());
+error(
+    __errstatus,
+    *__errno_location(),
+    gettext(b"cannot open directory %s\0" as *const u8 as *const libc::c_char),
+    quote(parent_path),
+);
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+            ({
+                let __errstatus: libc::c_int = 1 as libc::c_int;
+                let parent_path = nth_parent(parent_height.try_into().unwrap());
+error(
+    __errstatus,
+    *__errno_location(),
+    gettext(b"cannot open directory %s\0" as *const u8 as *const libc::c_char),
+    quote(parent_path),
+);
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+        };
+    }
+    fd = dirfd(dirp);
+    if (if 0 as libc::c_int <= fd {
+        fchdir(fd)
+    } else {
+        chdir(b"..\0" as *const u8 as *const libc::c_char)
+    }) < 0 as libc::c_int
+    {
+        if 0 != 0 {
+            let parent_path = nth_parent(parent_height.try_into().unwrap());
+error(
+    1,
+    *__errno_location(),
+    gettext(b"failed to chdir to %s\0" as *const u8 as *const libc::c_char),
+    quote(parent_path),
+);
+            if 1 as libc::c_int != 0 as libc::c_int {
+                unreachable!();
+            } else {};
+        } else {
+            ({
+                let __errstatus: libc::c_int = 1 as libc::c_int;
+                let parent_path = nth_parent(parent_height.try_into().unwrap());
+error(
+    __errstatus,
+    *__errno_location(),
+    gettext(b"failed to chdir to %s\0" as *const u8 as *const libc::c_char),
+    quote(parent_path),
+);
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+            ({
+                let __errstatus: libc::c_int = 1 as libc::c_int;
+                let parent_path = nth_parent(parent_height.try_into().unwrap());
+error(
+    __errstatus,
+    *__errno_location(),
+    gettext(b"failed to chdir to %s\0" as *const u8 as *const libc::c_char),
+    quote(parent_path),
+);
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+        };
+    }
+    if (if 0 as libc::c_int <= fd {
+        fstat(fd, &mut parent_sb)
+    } else {
+        stat(b".\0" as *const u8 as *const libc::c_char, &mut parent_sb)
+    }) < 0 as libc::c_int
+    {
+        if 0 != 0 {
+            let parent_path = nth_parent(parent_height.try_into().unwrap());
+error(
+    1,
+    *__errno_location(),
+    gettext(b"failed to stat %s\0" as *const u8 as *const libc::c_char),
+    quote(parent_path),
+);
+            if 1 as libc::c_int != 0 as libc::c_int {
+                unreachable!();
+            } else {};
+        } else {
+            ({
+                let __errstatus: libc::c_int = 1 as libc::c_int;
+                let parent_path = nth_parent(parent_height.try_into().unwrap());
+error(
+    __errstatus,
+    *__errno_location(),
+    gettext(b"failed to stat %s\0" as *const u8 as *const libc::c_char),
+    quote(parent_path),
+);
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+            ({
+                let __errstatus: libc::c_int = 1 as libc::c_int;
+                let parent_path = nth_parent(parent_height.try_into().unwrap());
+error(
+    __errstatus,
+    *__errno_location(),
+    gettext(b"failed to stat %s\0" as *const u8 as *const libc::c_char),
+    quote(parent_path),
+);
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+        };
+    }
+    use_lstat = parent_sb.st_dev != (*dot_sb).st_dev;
+    found = 0 as libc::c_int != 0;
+    loop {
+        let mut dp: *const dirent = 0 as *const dirent;
+        let mut ent_sb: stat = stat {
+            st_dev: 0,
+            st_ino: 0,
+            st_mode: 0,
+            st_nlink: 0,
+            st_uid: 0,
+            st_gid: 0,
+            st_rdev: 0,
+            __pad1: 0,
+            st_size: 0,
+            st_blksize: 0,
+            __pad2: 0,
+            st_blocks: 0,
+            st_atim: timespec { tv_sec: 0, tv_nsec: 0 },
+            st_mtim: timespec { tv_sec: 0, tv_nsec: 0 },
+            st_ctim: timespec { tv_sec: 0, tv_nsec: 0 },
+            __glibc_reserved: [0; 2],
+        };
+        let mut ino: ino_t = 0;
+        *__errno_location() = 0 as libc::c_int;
+        dp = readdir_ignoring_dot_and_dotdot(dirp);
+        if dp.is_null() {
+            if *__errno_location() != 0 {
+                let mut e: libc::c_int = *__errno_location();
+                closedir(dirp);
+                *__errno_location() = e;
+                dirp = 0 as *mut DIR;
+            }
+            break;
+        } else {
+            ino = (*dp).d_ino;
+            if ino == NOT_AN_INODE_NUMBER as libc::c_int as libc::c_ulong
+                || use_lstat as libc::c_int != 0
+            {
+                if lstat(((*dp).d_name).as_ptr(), &mut ent_sb) < 0 as libc::c_int {
+                    continue;
+                }
+                ino = ent_sb.st_ino;
+            }
+            if ino != (*dot_sb).st_ino {
+                continue;
+            }
+            if !(!use_lstat || ent_sb.st_dev == (*dot_sb).st_dev) {
+                continue;
+            }
+            file_name_prepend(
+                file_name,
+                ((*dp).d_name).as_ptr(),
+                strlen(((*dp).d_name).as_ptr()),
+            );
+            found = 1 as libc::c_int != 0;
+            break;
+        }
+    }
+    if dirp.is_null() || closedir(dirp) != 0 as libc::c_int {
+        if 0 != 0 {
+            let parent_path = nth_parent(parent_height.try_into().unwrap());
+error(
+    1,
+    *__errno_location(),
+    gettext(b"reading directory %s\0" as *const u8 as *const libc::c_char),
+    quote(parent_path),
+);
+            if 1 as libc::c_int != 0 as libc::c_int {
+                unreachable!();
+            } else {};
+        } else {
+            ({
+                let __errstatus: libc::c_int = 1 as libc::c_int;
+                let parent_path = nth_parent(parent_height.try_into().unwrap());
+error(
+    __errstatus,
+    *__errno_location(),
+    gettext(b"reading directory %s\0" as *const u8 as *const libc::c_char),
+    quote(parent_path),
+);
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+            ({
+                let __errstatus: libc::c_int = 1 as libc::c_int;
+                let parent_path = nth_parent(parent_height.try_into().unwrap());
+error(
+    __errstatus,
+    *__errno_location(),
+    gettext(b"reading directory %s\0" as *const u8 as *const libc::c_char),
+    quote(parent_path),
+);
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+        };
+    }
+    if !found {
+    let errstatus = 1;
+    let message = gettext(
+        b"couldn't find directory entry in %s with matching i-node\0" as *const u8 as *const libc::c_char,
+    );
+    error(errstatus, 0, message, quote(nth_parent(parent_height)));
+
+    if errstatus != 0 {
+        unreachable!();
+    }
+}
+*dot_sb = parent_sb;
+
+}
+src/pwd.rs:767:1: 912:2
+unsafe extern "C" fn robust_getcwd(mut file_name: *mut file_name) {
+    let mut height: size_t = 1 as libc::c_int as size_t;
+    let mut dev_ino_buf: dev_ino = dev_ino { st_ino: 0, st_dev: 0 };
+    let mut root_dev_ino: *mut dev_ino = get_root_dev_ino(&mut dev_ino_buf);
+    let mut dot_sb: stat = stat {
+        st_dev: 0,
+        st_ino: 0,
+        st_mode: 0,
+        st_nlink: 0,
+        st_uid: 0,
+        st_gid: 0,
+        st_rdev: 0,
+        __pad1: 0,
+        st_size: 0,
+        st_blksize: 0,
+        __pad2: 0,
+        st_blocks: 0,
+        st_atim: timespec { tv_sec: 0, tv_nsec: 0 },
+        st_mtim: timespec { tv_sec: 0, tv_nsec: 0 },
+        st_ctim: timespec { tv_sec: 0, tv_nsec: 0 },
+        __glibc_reserved: [0; 2],
+    };
+    if root_dev_ino.is_null() {
+        if 0 != 0 {
+            error(
+                1 as libc::c_int,
+                *__errno_location(),
+                gettext(
+                    b"failed to get attributes of %s\0" as *const u8
+                        as *const libc::c_char,
+                ),
+                quotearg_style(
+                    shell_escape_always_quoting_style,
+                    b"/\0" as *const u8 as *const libc::c_char,
+                ),
+            );
+            if 1 as libc::c_int != 0 as libc::c_int {
+                unreachable!();
+            } else {};
+        } else {
+            ({
+                let __errstatus: libc::c_int = 1 as libc::c_int;
+                error(
+                    __errstatus,
+                    *__errno_location(),
+                    gettext(
+                        b"failed to get attributes of %s\0" as *const u8
+                            as *const libc::c_char,
+                    ),
+                    quotearg_style(
+                        shell_escape_always_quoting_style,
+                        b"/\0" as *const u8 as *const libc::c_char,
+                    ),
+                );
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+            ({
+                let __errstatus: libc::c_int = 1 as libc::c_int;
+                error(
+                    __errstatus,
+                    *__errno_location(),
+                    gettext(
+                        b"failed to get attributes of %s\0" as *const u8
+                            as *const libc::c_char,
+                    ),
+                    quotearg_style(
+                        shell_escape_always_quoting_style,
+                        b"/\0" as *const u8 as *const libc::c_char,
+                    ),
+                );
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+        };
+    }
+    if stat(b".\0" as *const u8 as *const libc::c_char, &mut dot_sb) < 0 as libc::c_int {
+        if 0 != 0 {
+            error(
+                1 as libc::c_int,
+                *__errno_location(),
+                gettext(b"failed to stat %s\0" as *const u8 as *const libc::c_char),
+                quotearg_style(
+                    shell_escape_always_quoting_style,
+                    b".\0" as *const u8 as *const libc::c_char,
+                ),
+            );
+            if 1 as libc::c_int != 0 as libc::c_int {
+                unreachable!();
+            } else {};
+        } else {
+            ({
+                let __errstatus: libc::c_int = 1 as libc::c_int;
+                error(
+                    __errstatus,
+                    *__errno_location(),
+                    gettext(b"failed to stat %s\0" as *const u8 as *const libc::c_char),
+                    quotearg_style(
+                        shell_escape_always_quoting_style,
+                        b".\0" as *const u8 as *const libc::c_char,
+                    ),
+                );
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+            ({
+                let __errstatus: libc::c_int = 1 as libc::c_int;
+                error(
+                    __errstatus,
+                    *__errno_location(),
+                    gettext(b"failed to stat %s\0" as *const u8 as *const libc::c_char),
+                    quotearg_style(
+                        shell_escape_always_quoting_style,
+                        b".\0" as *const u8 as *const libc::c_char,
+                    ),
+                );
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+        };
+    }
+    while !(dot_sb.st_dev ^ (*root_dev_ino).st_dev
+        | dot_sb.st_ino ^ (*root_dev_ino).st_ino == 0)
+    {
+        let fresh0 = height;
+        height = height.wrapping_add(1);
+        find_dir_entry(&mut dot_sb, file_name, fresh0);
+    }
+    if *((*file_name).start).offset(0 as libc::c_int as isize) as libc::c_int
+        == '\0' as i32
+    {
+        file_name_prepend(
+            file_name,
+            b"\0" as *const u8 as *const libc::c_char,
+            0 as libc::c_int as size_t,
+        );
+    }
+}
+src/pwd.rs:913:1: 980:2
+unsafe extern "C" fn logical_getcwd() -> *mut libc::c_char {
+    let mut st1: stat = stat {
+        st_dev: 0,
+        st_ino: 0,
+        st_mode: 0,
+        st_nlink: 0,
+        st_uid: 0,
+        st_gid: 0,
+        st_rdev: 0,
+        __pad1: 0,
+        st_size: 0,
+        st_blksize: 0,
+        __pad2: 0,
+        st_blocks: 0,
+        st_atim: timespec { tv_sec: 0, tv_nsec: 0 },
+        st_mtim: timespec { tv_sec: 0, tv_nsec: 0 },
+        st_ctim: timespec { tv_sec: 0, tv_nsec: 0 },
+        __glibc_reserved: [0; 2],
+    };
+    let mut st2: stat = stat {
+        st_dev: 0,
+        st_ino: 0,
+        st_mode: 0,
+        st_nlink: 0,
+        st_uid: 0,
+        st_gid: 0,
+        st_rdev: 0,
+        __pad1: 0,
+        st_size: 0,
+        st_blksize: 0,
+        __pad2: 0,
+        st_blocks: 0,
+        st_atim: timespec { tv_sec: 0, tv_nsec: 0 },
+        st_mtim: timespec { tv_sec: 0, tv_nsec: 0 },
+        st_ctim: timespec { tv_sec: 0, tv_nsec: 0 },
+        __glibc_reserved: [0; 2],
+    };
+    let mut wd: *mut libc::c_char = getenv(b"PWD\0" as *const u8 as *const libc::c_char);
+    let mut p: *mut libc::c_char = 0 as *mut libc::c_char;
+    if wd.is_null() || *wd.offset(0 as libc::c_int as isize) as libc::c_int != '/' as i32
+    {
+        return 0 as *mut libc::c_char;
+    }
+    p = wd;
+    loop {
+        p = strstr(p, b"/.\0" as *const u8 as *const libc::c_char);
+        if p.is_null() {
+            break;
+        }
+        if *p.offset(2 as libc::c_int as isize) == 0
+            || *p.offset(2 as libc::c_int as isize) as libc::c_int == '/' as i32
+            || *p.offset(2 as libc::c_int as isize) as libc::c_int == '.' as i32
+                && (*p.offset(3 as libc::c_int as isize) == 0
+                    || *p.offset(3 as libc::c_int as isize) as libc::c_int == '/' as i32)
+        {
+            return 0 as *mut libc::c_char;
+        }
+        p = p.offset(1);
+        p;
+    }
+    if stat(wd, &mut st1) == 0 as libc::c_int
+        && stat(b".\0" as *const u8 as *const libc::c_char, &mut st2) == 0 as libc::c_int
+        && psame_inode(&mut st1, &mut st2) as libc::c_int != 0
+    {
+        return wd;
+    }
+    return 0 as *mut libc::c_char;
+}
+src/pwd.rs:981:1: 1102:2
+unsafe fn main_0(
+    mut argc: libc::c_int,
+    mut argv: *mut *mut libc::c_char,
+) -> libc::c_int {
+    let mut wd: *mut libc::c_char = 0 as *mut libc::c_char;
+    let mut logical: bool = !(getenv(
+        b"POSIXLY_CORRECT\0" as *const u8 as *const libc::c_char,
+    ))
+        .is_null();
+    set_program_name(*argv.offset(0 as libc::c_int as isize));
+    setlocale(6 as libc::c_int, b"\0" as *const u8 as *const libc::c_char);
+    bindtextdomain(
+        b"coreutils\0" as *const u8 as *const libc::c_char,
+        b"/usr/local/share/locale\0" as *const u8 as *const libc::c_char,
+    );
+    textdomain(b"coreutils\0" as *const u8 as *const libc::c_char);
+    atexit(Some(close_stdout as unsafe extern "C" fn() -> ()));
+    loop {
+        let mut c: libc::c_int = getopt_long(
+            argc,
+            argv,
+            b"LP\0" as *const u8 as *const libc::c_char,
+            longopts.as_ptr(),
+            0 as *mut libc::c_int,
+        );
+        if c == -(1 as libc::c_int) {
+            break;
+        }
+        match c {
+            76 => {
+                logical = 1 as libc::c_int != 0;
+            }
+            80 => {
+                logical = 0 as libc::c_int != 0;
+            }
+            -2 => {
+                usage(0);
+            }
+            -3 => {
+                version_etc(
+                    stdout,
+                    b"pwd\0" as *const u8 as *const libc::c_char,
+                    b"GNU coreutils\0" as *const u8 as *const libc::c_char,
+                    Version,
+                    proper_name_lite(
+                        b"Jim Meyering\0" as *const u8 as *const libc::c_char,
+                        b"Jim Meyering\0" as *const u8 as *const libc::c_char,
+                    ),
+                    0 as *mut libc::c_void as *mut libc::c_char,
+                );
+                exit(0 as libc::c_int);
+            }
+            _ => {
+                usage(1);
+            }
+        }
+    }
+    if optind < argc {
+        if 0 != 0 {
+            error(
+                0 as libc::c_int,
+                0 as libc::c_int,
+                gettext(
+                    b"ignoring non-option arguments\0" as *const u8
+                        as *const libc::c_char,
+                ),
+            );
+            if 0 as libc::c_int != 0 as libc::c_int {
+                unreachable!();
+            } else {};
+        } else {
+            ({
+                let __errstatus: libc::c_int = 0 as libc::c_int;
+                error(
+                    __errstatus,
+                    0 as libc::c_int,
+                    gettext(
+                        b"ignoring non-option arguments\0" as *const u8
+                            as *const libc::c_char,
+                    ),
+                );
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+            ({
+                let __errstatus: libc::c_int = 0 as libc::c_int;
+                error(
+                    __errstatus,
+                    0 as libc::c_int,
+                    gettext(
+                        b"ignoring non-option arguments\0" as *const u8
+                            as *const libc::c_char,
+                    ),
+                );
+                if __errstatus != 0 as libc::c_int {
+                    unreachable!();
+                } else {};
+                
+            });
+        };
+    }
+    if logical {
+        wd = logical_getcwd();
+        if !wd.is_null() {
+            puts(wd);
+            return 0 as libc::c_int;
+        }
+    }
+    wd = xgetcwd();
+    if !wd.is_null() {
+        puts(wd);
+        free(wd as *mut libc::c_void);
+    } else {
+        let mut file_name = Box::into_raw(Box::new(file_name_init())); // Convert to raw pointer
+        robust_getcwd(file_name);
+        puts((*file_name).start);
+        file_name_free(file_name);
+    }
+    return 0 as libc::c_int;
+}
+src/pwd.rs:1115:5: 1120:6
+unsafe {
+        status = main_0(
+            (c_args.len() - 1) as libc::c_int,
+            c_args.as_mut_ptr(),
+        );
+    }

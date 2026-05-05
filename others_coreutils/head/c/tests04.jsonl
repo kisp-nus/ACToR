@@ -1,0 +1,6 @@
+{"name":"line_count_9","description":"Head with 9 lines (just below default)","cmd_prep":"seq 1 15 | sed 's/^/line/' > tmp456_test.txt","cmd_target":"BINARY -n 9 tmp456_test.txt","cmd_post":"rm -f tmp456_test.txt","norm_rules":[],"idx":66}
+{"name":"line_count_13","description":"Head with 13 lines (just above default)","cmd_prep":"seq 1 20 | sed 's/^/content/' > tmp456_test.txt","cmd_target":"BINARY -n 13 tmp456_test.txt","cmd_post":"rm -f tmp456_test.txt","norm_rules":[],"idx":67}
+{"name":"obsolete_syntax_5","description":"Head with obsolete -5 syntax","cmd_prep":"printf 'first\\nsecond\\nthird\\nfourth\\nfifth\\nsixth\\nseventh' > tmp456_test.txt","cmd_target":"BINARY -5 tmp456_test.txt","cmd_post":"rm -f tmp456_test.txt","norm_rules":[],"idx":68}
+{"name":"multiple_files_5","description":"Head with 5 files","cmd_prep":"printf 'a' > tmp456_a.txt && printf 'b' > tmp456_b.txt && printf 'c' > tmp456_c.txt && printf 'd' > tmp456_d.txt && printf 'e' > tmp456_e.txt","cmd_target":"BINARY -n 1 tmp456_a.txt tmp456_b.txt tmp456_c.txt tmp456_d.txt tmp456_e.txt","cmd_post":"rm -f tmp456_a.txt tmp456_b.txt tmp456_c.txt tmp456_d.txt tmp456_e.txt","norm_rules":[],"idx":69}
+{"name":"stdin_default_ten_lines","description":"Head from stdin with default 10 lines","cmd_prep":"","cmd_target":"seq 1 15 | BINARY","cmd_post":"","norm_rules":[],"idx":70}
+
