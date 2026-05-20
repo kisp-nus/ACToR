@@ -12,7 +12,7 @@
 
 <p align="center">
   📖 Paper: 
-  <a href="https://arxiv.org/abs/2510.03879v2">
+  <a href="https://arxiv.org/abs/2510.03879v3">
     Adversarial Agent Collaboration for C to Rust Translation
   </a>
 </p>
